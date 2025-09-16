@@ -16,6 +16,12 @@ public class CustomAttributes {
     public static final DeferredRegister<Attribute> ATTRIBUTES =
             DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MurabitoAttributesMod.MODID);
 
+    /*物理*/
+    public static final RegistryObject<Attribute> PHYS_DAMAGE_EXTRA =
+            register("phys_damage_extra", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> PHYS_DAMAGE_MULTI =
+            register("phys_damage_multi", 1.0D, 0.0D, 25565.0D);
+
     /*非物理属性基礎値*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_BASE =
             register("fire_damage_base", 0.0D, 0.0D, 25565.0D);
@@ -26,15 +32,25 @@ public class CustomAttributes {
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_BASE =
             register("chaos_damage_base", 0.0D, 0.0D, 25565.0D);
 
+    /*非物理属性倍率*/
+    public static final RegistryObject<Attribute> FIRE_DAMAGE_SCALE =
+            register("fire_damage_scale", 1.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> ICE_DAMAGE_SCALE =
+            register("ice_damage_scale", 1.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_SCALE =
+            register("lightning_damage_scale", 1.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHAOS_DAMAGE_SCALE =
+            register("chaos_damage_scale", 1.0D, 0.0D, 25565.0D);
+
     /*非物理属性耐性*/
     public static final RegistryObject<Attribute> FIRE_RESISTANCE =
-            register("fire_resistance", 0.0D, -25565.0D, 25565.0D);
+            register("fire_resistance", 0.0D, -1.0D, 25565.0D);
     public static final RegistryObject<Attribute> ICE_RESISTANCE =
-            register("ice_resistance", 0.0D, -25565.0D, 25565.0D);
+            register("ice_resistance", 0.0D, -1.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_RESISTANCE =
-            register("lightning_resistance", 0.0D, -25565.0D, 25565.0D);
+            register("lightning_resistance", 0.0D, -1.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_RESISTANCE =
-            register("chaos_resistance", 0.0D, -25565.0D, 25565.0D);
+            register("chaos_resistance", 0.0D, -1.0D, 25565.0D);
 
     /*非物理属性耐性最大値*/
     public static final RegistryObject<Attribute> FIRE_RESISTANCE_MAX =
@@ -70,16 +86,8 @@ public class CustomAttributes {
 
     public static final RegistryObject<Attribute> LIGHTNING_TO_ICE_DAMAGE_CONV =
             register("lightning_to_ice_damage_conv", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> LIGHTNING_TO_FIRE_DAMAGE_CONV =
-            register("lightning_to_fire_damage_conv", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> LIGHTNING_TO_CHAOS_DAMAGE_CONV =
-            register("lightning_to_chaos_damage_conv", 0.0D, 0.0D, 25565.0D);
-
     public static final RegistryObject<Attribute> ICE_TO_FIRE_DAMAGE_CONV =
             register("ice_to_fire_damage_conv", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_TO_CHAOS_DAMAGE_CONV =
-            register("ice_to_chaos_damage_conv", 0.0D, 0.0D, 25565.0D);
-
     public static final RegistryObject<Attribute> FIRE_TO_CHAOS_DAMAGE_CONV =
             register("fire_to_chaos_damage_conv", 0.0D, 0.0D, 25565.0D);
 
@@ -115,6 +123,8 @@ public class CustomAttributes {
             register("ice_reflection", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_REFLECTION =
             register("lightning_reflection", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHAOS_REFLECTION =
+            register("chaos_reflection", 0.0D, 0.0D, 25565.0D);
 
     /*ブロック関係*/
     public static final RegistryObject<Attribute> AUTO_BLOCK_CHANCE =
@@ -142,6 +152,8 @@ public class CustomAttributes {
             register("spell_critical_chance", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CRITICAL_MULTI =
             register("critical_multi", 1.5D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> SPELL_CRITICAL_MULTI =
+            register("spell_critical_multi", 1.5D, 0.0D, 25565.0D);
 
     /*状態異常確率*/
     public static final RegistryObject<Attribute> IGNITE_CHANCE =
@@ -195,7 +207,7 @@ public class CustomAttributes {
     // ---------- 登録用ヘルパー ----------
     private static RegistryObject<Attribute> register(String name, double defaultValue, double min, double max) {
         return ATTRIBUTES.register(name,
-                () -> new RangedAttribute(MurabitoAttributesMod.MODID + "." + name,
+                () -> new RangedAttribute("Attribute.name." + MurabitoAttributesMod.MODID + "." + name,
                         defaultValue, min, max)
                         .setSyncable(true)
         );

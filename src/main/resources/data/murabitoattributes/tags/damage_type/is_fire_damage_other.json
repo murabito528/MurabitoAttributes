@@ -1,0 +1,9 @@
+{
+  "values": [
+    {"id":"irons_spellbooks:fire_magic","required":false},
+    {"id":"irons_spellbooks:holy_magic","required":false},
+    {"id":"irons_spellbooks:fire_field","required":false},
+    {"id":"cataclysm:flame_strike","required":false},
+    {"id":"cataclysm:laser","required":false}
+  ]
+}

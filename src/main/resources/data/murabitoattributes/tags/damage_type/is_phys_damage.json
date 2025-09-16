@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#murabitoattributes:is_phys_damage_other",
+    "minecraft:player_attack",
+    "minecraft:mob_attack",
+    "minecraft:arrow",
+    "minecraft:trident",
+    "minecraft:player_explosion"
+  ]
+}

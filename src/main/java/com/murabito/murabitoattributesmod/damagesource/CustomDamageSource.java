@@ -11,20 +11,20 @@ import net.minecraft.world.damagesource.DamageTypes;
 
 import static com.murabito.murabitoattributesmod.MurabitoAttributesMod.MODID;
 
+@SuppressWarnings("removal")
 public class CustomDamageSource {
-    @SuppressWarnings("removal")
     public static final ResourceKey<DamageType> ELEMENTAL_FIRE =
             ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "elemental_fire"));
 
-    @SuppressWarnings("removal")
     public static final ResourceKey<DamageType> ELEMENTAL_ICE =
             ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "elemental_ice"));
 
-    @SuppressWarnings("removal")
     public static final ResourceKey<DamageType> ELEMENTAL_LIGHTNING =
             ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "elemental_lightning"));
 
-    @SuppressWarnings("removal")
+    public static final ResourceKey<DamageType> ELEMENTAL_CHAOS =
+            ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "elemental_chaos"));
+
     public static final ResourceKey<DamageType> REFLECT =
             ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, "reflect"));
 }

@@ -1,0 +1,7 @@
+{
+  "values": [
+    {"id":"irons_spellbooks:ice_magic","required":false},
+    {"id":"traveloptics:aqua_magic","required":false}
+
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#murabitoattributes:is_fire_damage_other",
+    "#murabitoattributes:is_ice_damage_other",
+    "#murabitoattributes:is_lightning_damage_other",
+    "#murabitoattributes:is_chaos_damage_other",
+    "minecraft:indirect_magic",
+    "minecraft:magic"
+  ]
+}

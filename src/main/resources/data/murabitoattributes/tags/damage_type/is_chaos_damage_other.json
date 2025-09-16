@@ -1,0 +1,10 @@
+{
+  "values": [
+    {"id":"irons_spellbooks:blood_magic","required":false},
+    {"id":"irons_spellbooks:ender_magic","required":false},
+    {"id":"irons_spellbooks:dragon_breath_pool","required":false},
+    {"id":"irons_spellbooks:poison_cloud","required":false},
+    {"id":"irons_spellbooks:eldritch_magic","required":false}
+
+  ]
+}
