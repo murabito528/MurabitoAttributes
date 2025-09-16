@@ -195,7 +195,7 @@ public class CustomAttributes {
     // ---------- 登録用ヘルパー ----------
     private static RegistryObject<Attribute> register(String name, double defaultValue, double min, double max) {
         return ATTRIBUTES.register(name,
-                () -> new RangedAttribute("mattr." + MurabitoAttributesMod.MODID + "." + name,
+                () -> new RangedAttribute(MurabitoAttributesMod.MODID + "." + name,
                         defaultValue, min, max)
                         .setSyncable(true)
         );
