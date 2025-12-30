@@ -11,6 +11,12 @@ import net.minecraft.world.damagesource.DamageTypes;
 
 import static com.murabito.murabitoattributesmod.MurabitoAttributesMod.MODID;
 
+/**
+ * murabitoattributesmod.damageのほうで一括処理するように変更
+ * エラーを起こさないためだけに残してる
+ * 後で諸々削除
+ */
+@Deprecated
 @SuppressWarnings("removal")
 public class CustomDamageSource {
     public static final ResourceKey<DamageType> ELEMENTAL_FIRE =

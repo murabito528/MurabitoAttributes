@@ -1,7 +1,7 @@
 package com.murabito.murabitoattributesmod.util;
 
 import com.murabito.murabitoattributesmod.attributes.CustomAttributes;
-import com.murabito.murabitoattributesmod.damagesource.ModDamageTypeTags;
+import com.murabito.murabitoattributesmod.damagesource.ModDamageTypeTags_old;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
@@ -9,6 +9,13 @@ import net.minecraft.world.entity.LivingEntity;
 
 import static com.murabito.murabitoattributesmod.util.Util.getAttributeValueOrZero;
 
+/**
+ * murabitoattributesmod.damageのほうで一括処理するように変更
+ * 特にこのクラス長すぎ!
+ * エラーを起こさないためだけに残してる
+ * 後で諸々削除
+ */
+@Deprecated
 public class DamageData {
     public float originalDamage;
     public ResourceKey<DamageType> damageType;
@@ -64,11 +71,11 @@ public class DamageData {
         /*オリジナルのダメージ*/
         originalDamage = damage;
 
-        inputPhysDamage = (source.is(ModDamageTypeTags.IS_PHYS_DAMAGE))?damage:0;
-        inputFireDamage = (source.is(ModDamageTypeTags.IS_FIRE_DAMAGE))?damage:0;
-        inputIceDamage = (source.is(ModDamageTypeTags.IS_ICE_DAMAGE))?damage:0;
-        inputLightningDamage = (source.is(ModDamageTypeTags.IS_LIGHTNING_DAMAGE))?damage:0;
-        inputChaosDamage = (source.is(ModDamageTypeTags.IS_CHAOS_DAMAGE))?damage:0;
+        inputPhysDamage = (source.is(ModDamageTypeTags_old.IS_PHYS_DAMAGE))?damage:0;
+        inputFireDamage = (source.is(ModDamageTypeTags_old.IS_FIRE_DAMAGE))?damage:0;
+        inputIceDamage = (source.is(ModDamageTypeTags_old.IS_COLD_DAMAGE))?damage:0;
+        inputLightningDamage = (source.is(ModDamageTypeTags_old.IS_LIGHTNING_DAMAGE))?damage:0;
+        inputChaosDamage = (source.is(ModDamageTypeTags_old.IS_CHAOS_DAMAGE))?damage:0;
 
         // 攻撃者属性
         physExtra = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_DAMAGE_EXTRA.get());
@@ -78,9 +85,9 @@ public class DamageData {
         flatFire = getAttributeValueOrZero(attacker, CustomAttributes.FIRE_DAMAGE_BASE.get());
         convExtraFire = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_FIRE_DAMAGE_EXTRA.get());
 
-        convIce = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_ICE_DAMAGE_CONV.get());
-        flatIce = getAttributeValueOrZero(attacker, CustomAttributes.ICE_DAMAGE_BASE.get());
-        convExtraIce = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_ICE_DAMAGE_EXTRA.get());
+        convIce = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_COLD_DAMAGE_CONV.get());
+        flatIce = getAttributeValueOrZero(attacker, CustomAttributes.COLD_DAMAGE_BASE.get());
+        convExtraIce = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_COLD_DAMAGE_EXTRA.get());
 
         convLightning = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_LIGHTNING_DAMAGE_CONV.get());
         flatLightning = getAttributeValueOrZero(attacker, CustomAttributes.LIGHTNING_DAMAGE_BASE.get());
@@ -90,12 +97,12 @@ public class DamageData {
         flatChaos = getAttributeValueOrZero(attacker, CustomAttributes.CHAOS_DAMAGE_BASE.get());
         convExtraChaos = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_CHAOS_DAMAGE_EXTRA.get());
 
-        convLightning2Ice = getAttributeValueOrZero(attacker, CustomAttributes.LIGHTNING_TO_ICE_DAMAGE_CONV.get());
-        convIce2Fire = getAttributeValueOrZero(attacker, CustomAttributes.ICE_TO_FIRE_DAMAGE_CONV.get());
+        convLightning2Ice = getAttributeValueOrZero(attacker, CustomAttributes.LIGHTNING_TO_COLD_DAMAGE_CONV.get());
+        convIce2Fire = getAttributeValueOrZero(attacker, CustomAttributes.COLD_TO_FIRE_DAMAGE_CONV.get());
         convFire2Chaos = getAttributeValueOrZero(attacker, CustomAttributes.FIRE_TO_CHAOS_DAMAGE_CONV.get());
 
         fireScale = getAttributeValueOrZero(attacker, CustomAttributes.FIRE_DAMAGE_SCALE.get());
-        iceScale = getAttributeValueOrZero(attacker, CustomAttributes.ICE_DAMAGE_SCALE.get());
+        iceScale = getAttributeValueOrZero(attacker, CustomAttributes.COLD_DAMAGE_SCALE.get());
         lightningScale = getAttributeValueOrZero(attacker, CustomAttributes.LIGHTNING_DAMAGE_SCALE.get());
         chaosScale = getAttributeValueOrZero(attacker, CustomAttributes.CHAOS_DAMAGE_SCALE.get());
 

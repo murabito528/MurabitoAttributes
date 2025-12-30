@@ -2,7 +2,7 @@
   "values": [
     "#murabitoattributes:is_phys_damage",
     "#murabitoattributes:is_fire_damage_other",
-    "#murabitoattributes:is_ice_damage_other",
+    "#murabitoattributes:is_cold_damage_other",
     "#murabitoattributes:is_lightning_damage_other",
     "#murabitoattributes:is_chaos_damage_other"
   ]

@@ -2,18 +2,19 @@ package com.murabito.murabitoattributesmod.events;
 
 import com.murabito.murabitoattributesmod.MurabitoAttributesMod;
 import com.murabito.murabitoattributesmod.attributes.CustomAttributes;
+import com.murabito.murabitoattributesmod.damage.DamagePipeLine;
+import com.murabito.murabitoattributesmod.damage.HitData;
+import com.murabito.murabitoattributesmod.damage.HitDataFactory;
 import com.murabito.murabitoattributesmod.damagesource.CustomDamageSource;
-import com.murabito.murabitoattributesmod.damagesource.ModDamageTypeTags;
+import com.murabito.murabitoattributesmod.damagesource.ModDamageTypeTags_old;
 import com.murabito.murabitoattributesmod.gamerule.CustomGameRules;
 import com.murabito.murabitoattributesmod.util.DamageData;
-import com.murabito.murabitoattributesmod.util.DamageHelper;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -29,6 +30,7 @@ import javax.annotation.Nullable;
 import static com.murabito.murabitoattributesmod.util.DamageHelper.dealDamageWithType;
 import static com.murabito.murabitoattributesmod.util.Util.getAttributeValueOrZero;
 
+
 @Mod.EventBusSubscriber(modid = MurabitoAttributesMod.MODID)
 public class DamageEvent {
 
@@ -42,6 +44,10 @@ public class DamageEvent {
         LivingEntity target = event.getEntity();
         Entity attackerEntity = source.getEntity();
 
+        HitData hitData = HitDataFactory.create(target,attackerEntity,source,event.getAmount());
+        DamagePipeLine.get().process(hitData);
+        /*
+
         // 飛び道具ならシューターを取得
         if (attackerEntity instanceof Projectile projectile && projectile.getOwner() instanceof LivingEntity owner) {
             attackerEntity = owner;
@@ -49,10 +55,7 @@ public class DamageEvent {
 
         if (!(attackerEntity instanceof LivingEntity attacker)) return;
 
-        // プレイヤー・Mobの近接 or 飛び道具攻撃のみ対象
-        //if (!(source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.ARROW))) return;
-        //こっちにするとlog4エラー
-        if(!source.is(ModDamageTypeTags.IS_TRACKING)) return;
+        if(!source.is(ModDamageTypeTags_old.IS_TRACKING)) return;
 
         DamageData damageData = new DamageData(event.getAmount(),source,attacker,target);
 
@@ -81,10 +84,12 @@ public class DamageEvent {
             applyChaosDamage(target, damageData.finalChaosDamage, attacker);
             spawnParticles((ServerLevel) target.level(), target, ParticleTypes.WITCH);
         }
+        */
     }
 
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
+        /*
         DamageSource source = event.getSource();
         LivingEntity target = event.getEntity();
         Entity attackerEntity = source.getEntity();
@@ -97,7 +102,7 @@ public class DamageEvent {
         double resist=0;
 
         //物理ダメージ反射
-        if(source.is(DamageTypes.MOB_ATTACK)||source.is(DamageTypes.PLAYER_ATTACK)){
+        if(source.is(ModDamageTypeTags_old.IS_PHYS_DAMAGE)){
             double ref = getAttributeValueOrZero(target, CustomAttributes.PHYS_REFLECTION.get());
             if(ref>0) {
                 if (attackerEntity instanceof LivingEntity attacker) {
@@ -107,7 +112,7 @@ public class DamageEvent {
         }
 
         //炎ダメージ軽減
-        if(source.is(CustomDamageSource.ELEMENTAL_FIRE)){
+        if(source.is(ModDamageTypeTags_old.IS_FIRE_DAMAGE)){
 
             double resi = getAttributeValueOrZero(target, CustomAttributes.FIRE_RESISTANCE.get());
             double resi_max = getAttributeValueOrZero(target, CustomAttributes.FIRE_RESISTANCE_MAX.get());
@@ -132,20 +137,20 @@ public class DamageEvent {
         }
 
         //氷ダメージ軽減
-        if(source.is(CustomDamageSource.ELEMENTAL_ICE)){
-            double resi = getAttributeValueOrZero(target, CustomAttributes.ICE_RESISTANCE.get());
-            double resi_max = getAttributeValueOrZero(target, CustomAttributes.ICE_RESISTANCE_MAX.get());
+        if(source.is(ModDamageTypeTags_old.IS_COLD_DAMAGE)){
+            double resi = getAttributeValueOrZero(target, CustomAttributes.COLD_RESISTANCE.get());
+            double resi_max = getAttributeValueOrZero(target, CustomAttributes.COLD_RESISTANCE_MAX.get());
             double pene = (attackerEntity instanceof LivingEntity)
-                    ? getAttributeValueOrZero((LivingEntity) attackerEntity, CustomAttributes.ICE_PENETRATION.get())
+                    ? getAttributeValueOrZero((LivingEntity) attackerEntity, CustomAttributes.COLD_PENETRATION.get())
                     : 0.0;
             resi = Math.min(resi,resi_max) - pene;
-            double ref = getAttributeValueOrZero(target, CustomAttributes.ICE_REFLECTION.get());
+            double ref = getAttributeValueOrZero(target, CustomAttributes.COLD_REFLECTION.get());
             float reducedDamage = (float) (originalDamage * (1-resi));
             event.setAmount(reducedDamage);
 
             if(ref>0){
                 if(attackerEntity instanceof LivingEntity attacker) {
-                    double attackerResi = getAttributeValueOrZero(attacker, CustomAttributes.ICE_RESISTANCE.get());
+                    double attackerResi = getAttributeValueOrZero(attacker, CustomAttributes.COLD_RESISTANCE.get());
                     dealDamageWithType(attacker,target,(ServerLevel)target.level(),CustomDamageSource.REFLECT,
                             (float)(reducedDamage * ref * (1-attackerResi)));
                 }
@@ -155,7 +160,7 @@ public class DamageEvent {
         }
 
         //雷ダメージ軽減
-        if(source.is(CustomDamageSource.ELEMENTAL_LIGHTNING)){
+        if(source.is(ModDamageTypeTags_old.IS_LIGHTNING_DAMAGE)){
             double resi = getAttributeValueOrZero(target, CustomAttributes.LIGHTNING_RESISTANCE.get());
             double resi_max = getAttributeValueOrZero(target, CustomAttributes.LIGHTNING_RESISTANCE_MAX.get());
             double pene = (attackerEntity instanceof LivingEntity)
@@ -178,7 +183,7 @@ public class DamageEvent {
         }
 
         //カオスダメージ軽減
-        if(source.is(CustomDamageSource.ELEMENTAL_CHAOS)){
+        if(source.is(ModDamageTypeTags_old.IS_CHAOS_DAMAGE)){
             double resi = getAttributeValueOrZero(target, CustomAttributes.CHAOS_RESISTANCE.get());
             double resi_max = getAttributeValueOrZero(target, CustomAttributes.CHAOS_RESISTANCE_MAX.get());
             double pene = (attackerEntity instanceof LivingEntity)
@@ -232,6 +237,7 @@ public class DamageEvent {
                 }
             });
         }
+        */
     }
 
 

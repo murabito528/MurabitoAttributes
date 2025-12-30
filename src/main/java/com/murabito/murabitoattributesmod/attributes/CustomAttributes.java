@@ -25,8 +25,8 @@ public class CustomAttributes {
     /*非物理属性基礎値*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_BASE =
             register("fire_damage_base", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_DAMAGE_BASE =
-            register("ice_damage_base", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_DAMAGE_BASE =
+            register("cold_damage_base", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_BASE =
             register("lightning_damage_base", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_BASE =
@@ -35,8 +35,8 @@ public class CustomAttributes {
     /*非物理属性倍率*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_SCALE =
             register("fire_damage_scale", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_DAMAGE_SCALE =
-            register("ice_damage_scale", 1.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_DAMAGE_SCALE =
+            register("cold_damage_scale", 1.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_SCALE =
             register("lightning_damage_scale", 1.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_SCALE =
@@ -45,8 +45,8 @@ public class CustomAttributes {
     /*非物理属性耐性*/
     public static final RegistryObject<Attribute> FIRE_RESISTANCE =
             register("fire_resistance", 0.0D, -1.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_RESISTANCE =
-            register("ice_resistance", 0.0D, -1.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_RESISTANCE =
+            register("cold_resistance", 0.0D, -1.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_RESISTANCE =
             register("lightning_resistance", 0.0D, -1.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_RESISTANCE =
@@ -55,8 +55,8 @@ public class CustomAttributes {
     /*非物理属性耐性最大値*/
     public static final RegistryObject<Attribute> FIRE_RESISTANCE_MAX =
             register("fire_resistance_max", 0.75D, -25565.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_RESISTANCE_MAX =
-            register("ice_resistance_max", 0.75D, -25565.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_RESISTANCE_MAX =
+            register("cold_resistance_max", 0.75D, -25565.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_RESISTANCE_MAX =
             register("lightning_resistance_max", 0.75D, -25565.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_RESISTANCE_MAX =
@@ -65,49 +65,84 @@ public class CustomAttributes {
     /*耐性貫通*/
     public static final RegistryObject<Attribute> FIRE_PENETRATION =
             register("fire_penetration", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_PENETRATION =
-            register("ice_penetration", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_PENETRATION =
+            register("cold_penetration", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_PENETRATION =
             register("lightning_penetration", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_PENETRATION =
             register("chaos_penetration", 0.0D, 0.0D, 25565.0D);
+
+    /*追加ダメージ*/
+    public static final RegistryObject<Attribute> PHYS_ADD =
+            register("phys_add", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> FIRE_ADD =
+            register("fire_add", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_ADD =
+            register("cold_add", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_ADD =
+            register("lightning_add", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHAOS_ADD =
+            register("chaos_add", 0.0D, 0.0D, 25565.0D);
 
     /*ダメージ変換関係*/
     /*ダメージ変換は物理→雷→冷気→火→混沌の順に限定される*/
     /*A属性のB%をC属性として与える(Damage conversion)*/
     public static final RegistryObject<Attribute> PHYS_TO_FIRE_DAMAGE_CONV =
             register("phys_to_fire_damage_conv", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> PHYS_TO_ICE_DAMAGE_CONV =
-            register("phys_to_ice_damage_conv", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> PHYS_TO_COLD_DAMAGE_CONV =
+            register("phys_to_cold_damage_conv", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> PHYS_TO_LIGHTNING_DAMAGE_CONV =
             register("phys_to_lightning_damage_conv", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> PHYS_TO_CHAOS_DAMAGE_CONV =
             register("phys_to_chaos_damage_conv", 0.0D, 0.0D, 25565.0D);
 
-    public static final RegistryObject<Attribute> LIGHTNING_TO_ICE_DAMAGE_CONV =
-            register("lightning_to_ice_damage_conv", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_TO_FIRE_DAMAGE_CONV =
-            register("ice_to_fire_damage_conv", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_TO_COLD_DAMAGE_CONV =
+            register("lightning_to_cold_damage_conv", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_TO_FIRE_DAMAGE_CONV =
+            register("lightning_to_fire_damage_conv", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_TO_CHAOS_DAMAGE_CONV =
+            register("lightning_to_chaos_damage_conv", 0.0D, 0.0D, 25565.0D);
+
+    public static final RegistryObject<Attribute> COLD_TO_FIRE_DAMAGE_CONV =
+            register("cold_to_fire_damage_conv", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_TO_CHAOS_DAMAGE_CONV =
+            register("cold_to_chaos_damage_conv", 0.0D, 0.0D, 25565.0D);
+
     public static final RegistryObject<Attribute> FIRE_TO_CHAOS_DAMAGE_CONV =
             register("fire_to_chaos_damage_conv", 0.0D, 0.0D, 25565.0D);
 
     /*属性変換加算*/
     public static final RegistryObject<Attribute> PHYS_TO_FIRE_DAMAGE_EXTRA =
             register("phys_to_fire_damage_extra", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> PHYS_TO_ICE_DAMAGE_EXTRA =
-            register("phys_to_ice_damage_extra", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> PHYS_TO_COLD_DAMAGE_EXTRA =
+            register("phys_to_cold_damage_extra", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> PHYS_TO_LIGHTNING_DAMAGE_EXTRA =
             register("phys_to_lightning_damage_extra", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> PHYS_TO_CHAOS_DAMAGE_EXTRA =
             register("phys_to_chaos_damage_extra", 0.0D, 0.0D, 25565.0D);
+
+    public static final RegistryObject<Attribute> LIGHTNING_TO_COLD_DAMAGE_EXTRA =
+            register("lightning_to_cold_damage_extra", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_TO_FIRE_DAMAGE_EXTRA =
+            register("lightning_to_fire_damage_extra", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_TO_CHAOS_DAMAGE_EXTRA =
+            register("lightning_to_chaos_damage_extra", 0.0D, 0.0D, 25565.0D);
+
+    public static final RegistryObject<Attribute> COLD_TO_FIRE_DAMAGE_EXTRA =
+            register("cold_to_fire_damage_extra", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_TO_CHAOS_DAMAGE_EXTRA =
+            register("cold_to_chaos_damage_extra", 0.0D, 0.0D, 25565.0D);
+
+    public static final RegistryObject<Attribute> FIRE_TO_CHAOS_DAMAGE_EXTRA =
+            register("fire_to_chaos_damage_extra", 0.0D, 0.0D, 25565.0D);
 
     /*被ダメージ変換関係*/
     /*物理からの変換のみ*/
     /*A属性のB%をC属性として受ける(Damage Taken as)*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_TAKEN_AS =
             register("fire_damage_taken_as", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_DAMAGE_TAKEN_AS =
-            register("ice_damage_taken_as", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_DAMAGE_TAKEN_AS =
+            register("cold_damage_taken_as", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_TAKEN_AS =
             register("lightning_damage_taken_as", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_TAKEN_AS =
@@ -119,20 +154,20 @@ public class CustomAttributes {
             register("physics_reflection", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> FIRE_REFLECTION =
             register("fire_reflection", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> ICE_REFLECTION =
-            register("ice_reflection", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_REFLECTION =
+            register("cold_reflection", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_REFLECTION =
             register("lightning_reflection", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_REFLECTION =
             register("chaos_reflection", 0.0D, 0.0D, 25565.0D);
 
     /*ブロック関係*/
-    public static final RegistryObject<Attribute> AUTO_BLOCK_CHANCE =
-            register("auto_block_chance", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> AUTO_SPELL_BLOCK_CHANCE =
-            register("auto_spell_block_chance", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> AUTO_BLOCK_CHANCE_MAX =
-            register("auto_block_chance_max", 0.75D, 0.0D, 0.9D);
+    public static final RegistryObject<Attribute> BLOCK_CHANCE =
+            register("block_chance", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> SPELL_BLOCK_CHANCE =
+            register("spell_block_chance", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> BLOCK_CHANCE_MAX =
+            register("block_chance_max", 0.75D, 0.0D, 0.9D);
 
     /*回避関係*/
     /*PoEとは違い%*/
