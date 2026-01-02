@@ -6,9 +6,12 @@ import java.util.EnumSet;
 
 public class DamageComponent implements Cloneable {
     public double base;
-    public double convertedDamageTotal;
     public ModDamageType finalType;
     public EnumSet<ModDamageType> affectedTypes;
+
+    public double convertedDamageTotal=0;
+    public double increasedTotal=0;
+    public double criticalMultiTotal=0;
 
     public DamageComponent(double base, ModDamageType finalType) {
         this.base = base;

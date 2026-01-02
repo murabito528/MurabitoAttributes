@@ -10,12 +10,17 @@ public class CritStage implements DamageStage {
     @Override
     public boolean apply(HitData hitData) {
         if (hitData.attacker == null) {
-            DamageLog.log(hitData,"[accuracy]アタッカーが不在");
+            DamageLog.log(hitData,"[crit]アタッカーが不在");
+            return true;
+        }
+
+        if(hitData.flags.evaded){
+            DamageLog.log(hitData,"[crit]部分回避によりスキップ");
             return true;
         }
 
         double critChance = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CRITICAL_CHANCE.get());
-        double spellCritChance = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.SPELL_CRITICAL_CHANCE.get());
+        double spellCritChance = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CRITICAL_CHANCE_SPELL.get());
 
         boolean crit;
         if(hitData.flags.spell){

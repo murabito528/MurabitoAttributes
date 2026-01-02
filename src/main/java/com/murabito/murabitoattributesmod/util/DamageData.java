@@ -78,8 +78,8 @@ public class DamageData {
         inputChaosDamage = (source.is(ModDamageTypeTags_old.IS_CHAOS_DAMAGE))?damage:0;
 
         // 攻撃者属性
-        physExtra = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_DAMAGE_EXTRA.get());
-        physMulti = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_DAMAGE_MULTI.get());
+        //physExtra = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_DAMAGE_EXTRA.get());
+        physMulti = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_DAMAGE_MORE.get());
 
         convFire = getAttributeValueOrZero(attacker, CustomAttributes.PHYS_TO_FIRE_DAMAGE_CONV.get());
         flatFire = getAttributeValueOrZero(attacker, CustomAttributes.FIRE_DAMAGE_BASE.get());
@@ -101,15 +101,15 @@ public class DamageData {
         convIce2Fire = getAttributeValueOrZero(attacker, CustomAttributes.COLD_TO_FIRE_DAMAGE_CONV.get());
         convFire2Chaos = getAttributeValueOrZero(attacker, CustomAttributes.FIRE_TO_CHAOS_DAMAGE_CONV.get());
 
-        fireScale = getAttributeValueOrZero(attacker, CustomAttributes.FIRE_DAMAGE_SCALE.get());
-        iceScale = getAttributeValueOrZero(attacker, CustomAttributes.COLD_DAMAGE_SCALE.get());
-        lightningScale = getAttributeValueOrZero(attacker, CustomAttributes.LIGHTNING_DAMAGE_SCALE.get());
-        chaosScale = getAttributeValueOrZero(attacker, CustomAttributes.CHAOS_DAMAGE_SCALE.get());
+        fireScale = getAttributeValueOrZero(attacker, CustomAttributes.FIRE_DAMAGE_MORE.get());
+        iceScale = getAttributeValueOrZero(attacker, CustomAttributes.COLD_DAMAGE_MORE.get());
+        lightningScale = getAttributeValueOrZero(attacker, CustomAttributes.LIGHTNING_DAMAGE_MORE.get());
+        chaosScale = getAttributeValueOrZero(attacker, CustomAttributes.CHAOS_DAMAGE_MORE.get());
 
         criticalChance = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_CHANCE.get());
-        criticalMulti = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_MULTI.get());
-        spellCriticalChance = getAttributeValueOrZero(attacker, CustomAttributes.SPELL_CRITICAL_CHANCE.get());
-        spellCriticalMulti = getAttributeValueOrZero(attacker, CustomAttributes.SPELL_CRITICAL_MULTI.get());
+        criticalMulti = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_MULTI_GLOBAL.get());
+        spellCriticalChance = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_CHANCE_SPELL.get());
+        spellCriticalMulti = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_MULTI_SPELL.get());
     }
     
     public void calc_damage(){

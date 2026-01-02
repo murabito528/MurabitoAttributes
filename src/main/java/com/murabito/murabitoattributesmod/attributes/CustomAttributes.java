@@ -17,10 +17,16 @@ public class CustomAttributes {
             DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MurabitoAttributesMod.MODID);
 
     /*物理*/
-    public static final RegistryObject<Attribute> PHYS_DAMAGE_EXTRA =
-            register("phys_damage_extra", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> PHYS_DAMAGE_MULTI =
-            register("phys_damage_multi", 1.0D, 0.0D, 25565.0D);
+    //public static final RegistryObject<Attribute> PHYS_DAMAGE_EXTRA =
+    //        register("phys_damage_extra", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> PHYS_DAMAGE_MORE =
+            register("phys_damage_more", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> PHYS_DAMAGE_INC =
+            register("phys_damage_increased", 0.0D, 0.0D, 25565.0D);
+
+    /*物理軽減*/
+    public static final RegistryObject<Attribute> PHYS_REDUCTION =
+            register("phys_reduction", 0.0D, 0.0D, 25565.0D);
 
     /*非物理属性基礎値*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_BASE =
@@ -32,15 +38,25 @@ public class CustomAttributes {
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_BASE =
             register("chaos_damage_base", 0.0D, 0.0D, 25565.0D);
 
-    /*非物理属性倍率*/
-    public static final RegistryObject<Attribute> FIRE_DAMAGE_SCALE =
-            register("fire_damage_scale", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> COLD_DAMAGE_SCALE =
-            register("cold_damage_scale", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_SCALE =
-            register("lightning_damage_scale", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> CHAOS_DAMAGE_SCALE =
-            register("chaos_damage_scale", 1.0D, 0.0D, 25565.0D);
+    /*非物理属性more*/
+    public static final RegistryObject<Attribute> FIRE_DAMAGE_MORE =
+            register("fire_damage_more", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_DAMAGE_MORE =
+            register("cold_damage_more", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_MORE =
+            register("lightning_damage_more", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHAOS_DAMAGE_MORE =
+            register("chaos_damage_more", 0.0D, 0.0D, 25565.0D);
+
+    /*非物理属性inc*/
+    public static final RegistryObject<Attribute> FIRE_DAMAGE_INC =
+            register("fire_damage_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_DAMAGE_INC =
+            register("cold_damage_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_INC =
+            register("lightning_damage_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHAOS_DAMAGE_INC =
+            register("chaos_damage_inc", 0.0D, 0.0D, 25565.0D);
 
     /*非物理属性耐性*/
     public static final RegistryObject<Attribute> FIRE_RESISTANCE =
@@ -183,36 +199,44 @@ public class CustomAttributes {
     /*クリティカル*/
     public static final RegistryObject<Attribute> CRITICAL_CHANCE =
             register("critical_chance", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> SPELL_CRITICAL_CHANCE =
-            register("spell_critical_chance", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> CRITICAL_MULTI =
-            register("critical_multi", 1.5D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> SPELL_CRITICAL_MULTI =
-            register("spell_critical_multi", 1.5D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CRITICAL_CHANCE_SPELL =
+            register("critical_chance_spell", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CRITICAL_MULTI_GLOBAL =
+            register("critical_multi_global", 1.5D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CRITICAL_MULTI_SPELL =
+            register("critical_multi_spell", 1.5D, 0.0D, 25565.0D);
+
+    //クリティカルダメージ軽減
+    public static final RegistryObject<Attribute> CRITICAL_DAMAGE_LESS =
+            register("critical_damage_less", 0.0D, 0.0D, 25565.0D);
 
     /*状態異常確率*/
     public static final RegistryObject<Attribute> IGNITE_CHANCE =
             register("ignite_chance", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> FREEZE_CHANCE =
             register("freeze_chance", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> LIGHTNING_CHANCE =
+    public static final RegistryObject<Attribute> SHOCK_CHANCE =
             register("shock_chance", 0.0D, 0.0D, 25565.0D);
 
     /*状態異常時間倍率*/
-    public static final RegistryObject<Attribute> IGNITE_TIME_MULTI =
-            register("ignite_time_multi", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> FREEZE_TIME_MULTI =
-            register("freeze_time_multi", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> LIGHTNING_TIME_MULTI =
-            register("shock_time_multi", 1.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> IGNITE_TIME_INC =
+            register("ignite_time_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> FREEZE_TIME_INC =
+            register("freeze_time_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHILL_TIME_INC =
+            register("chill_time_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> SHOCK_TIME_INC =
+            register("shock_time_inc", 0.0D, 0.0D, 25565.0D);
 
     /*状態異常効果倍率*/
-    public static final RegistryObject<Attribute> IGNITE_EFFECT_MULTI =
-            register("ignite_effect_multi", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> FREEZE_EFFECT_MULTI =
-            register("freeze_effect_multi", 1.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> SHOCK_EFFECT_MULTI =
-            register("shock_effect_multi", 1.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> IGNITE_EFFECT_INC =
+            register("ignite_effect_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> FREEZE_EFFECT_INC =
+            register("freeze_effect_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHILL_EFFECT_INC =
+            register("chill_effect_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> SHOCK_EFFECT_INC =
+            register("shock_effect_inc", 0.0D, 0.0D, 25565.0D);
 
     /*リーチ関係*/
     public static final RegistryObject<Attribute> LIFE_LEECH =

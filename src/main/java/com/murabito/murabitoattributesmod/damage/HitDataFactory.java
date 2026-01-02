@@ -12,7 +12,8 @@ public class HitDataFactory {
             LivingEntity target,
             Entity attackerEntity,
             DamageSource damageSource,
-            double baseDamage
+            double baseDamage,
+            boolean canOnHit
     ) {
         LivingEntity attacker = null;
         boolean isProjectile = false;
@@ -35,6 +36,7 @@ public class HitDataFactory {
         }
 
         HitFlags flags = new HitFlags();
+        flags.canOnHit=canOnHit;
 
         return new HitData(target, attacker, flags, dc);
     }

@@ -115,6 +115,14 @@ public class ConvDamageStage implements DamageStage {
             conv(hitData, dc, ModDamageType.FIRE, ModDamageType.CHAOS, fireToChaos);
             damageFix(hitData,dc,ModDamageType.FIRE);
         }
+        /*
+        DamageLog.log(hitData, "[convDamage]--- components after conv ---");
+        for (DamageComponent dc : hitData.components) {
+            DamageLog.log(hitData,
+                    dc.finalType + " base=" + dc.base + " tags=" + dc.affectedTypes
+            );
+        }*/
+
 
         return true;
     }
@@ -125,11 +133,23 @@ public class ConvDamageStage implements DamageStage {
         double convertedDmg=dc.base*percent;
         dc.convertedDamageTotal+=convertedDmg;
         DamageComponent newDc = dc.clone();
+        newDc.convertedDamageTotal=0;
         newDc.base=convertedDmg;
         newDc.affectedTypes.add(after);
         newDc.finalType=after;
         hitData.components.add(newDc);
-        DamageLog.log(hitData,"[convDamage]ダメージ変換:"+before.name()+dc.base+"-("+percent*100+"%)->"+before.name()+(dc.base-convertedDmg)+","+after.name()+newDc.base);
+        DamageLog.log(hitData,
+                "[convDamage]ダメージ変換:%s%.2f-(%.1f%%)->%s%.2f,%s%.2f"
+                        .formatted(
+                                before.name(),
+                                dc.base,
+                                percent * 100,
+                                before.name(),
+                                dc.base - convertedDmg,
+                                after.name(),
+                                newDc.base
+                        )
+        );
     }
 
     void extra(HitData hitData,DamageComponent dc, ModDamageType before, ModDamageType after, double percent){
@@ -137,11 +157,23 @@ public class ConvDamageStage implements DamageStage {
 
         double extraDmg=dc.base*percent;
         DamageComponent newDc = dc.clone();
+        newDc.convertedDamageTotal=0;
         newDc.base=extraDmg;
         newDc.affectedTypes.add(after);
         newDc.finalType=after;
         hitData.components.add(newDc);
-        DamageLog.log(hitData,"[convDamage]追加ダメージ"+before.name()+dc.base+"-("+percent*100+"%)->"+before.name()+dc.base+","+after.name()+newDc.base);
+        DamageLog.log(hitData,
+                "[convDamage]追加ダメージ%s%.2f-(%.1f%%)->%s%.2f,%s%.2f"
+                        .formatted(
+                                before.name(),
+                                dc.base,
+                                percent * 100,
+                                before.name(),
+                                dc.base,
+                                after.name(),
+                                newDc.base
+                        )
+        );
     }
 
     void damageFix(HitData hitData, DamageComponent dc, ModDamageType before){

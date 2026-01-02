@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 public class AccuracyStage implements DamageStage {
     @Override
     public boolean apply(HitData hitData) {
+        DamageLog.log(hitData,"----------------(ダメージログ)------------------");
         //attackerが不在の場合は必中(環境ダメージとか?)
         if (hitData.attacker == null) {
             DamageLog.log(hitData,"[accuracy]アタッカーが不在");
@@ -22,9 +23,9 @@ public class AccuracyStage implements DamageStage {
         double eva = Util.getAttributeValueOrZero(hitData.target , CustomAttributes.EVASION_CHANCE.get());
         double evaMax = Util.getAttributeValueOrZero(hitData.target , CustomAttributes.EVASION_CHANCE_MAX.get());
 
-        double hitChance = ((100.0 + acc) - eva) / 100.0;
+        double evaChance = Math.min(eva, evaMax);
+        double hitChance = acc - evaChance;
         hitChance = Math.max(0.05, hitChance);        // 最低5%
-        hitChance = Math.min(hitChance, 1.0 - evaMax); // 回避上限
         boolean hit = Math.random() < hitChance;
 
         if(hit){

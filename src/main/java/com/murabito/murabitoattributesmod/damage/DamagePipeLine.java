@@ -2,6 +2,7 @@ package com.murabito.murabitoattributesmod.damage;
 
 import com.murabito.murabitoattributesmod.MurabitoAttributesMod;
 import com.murabito.murabitoattributesmod.damage.stages.*;
+import net.minecraft.server.level.ServerLevel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +25,16 @@ public class DamagePipeLine {
         //stages.add(new GainDamageStage());//AダメージのB%をCダメージとして追加する
 
 
+        stages.add(new ModifierStage());//inc/more/クリティカル倍率
         stages.add(new ConversionStage());//taken as
-        stages.add(new AilmentStage());// onHitイベントとか発火とか
-        stages.add(new ModifierStage());//inc/more
         stages.add(new DefenseStage());//防御力、耐性による軽減
+        stages.add(new AilmentStage());// onHitイベントとか発火とか
 
         stages.add(new ApplyStage());//ダメージの適用
     }
 
     public void process(HitData hitData) {
+        if (!(hitData.target.level() instanceof ServerLevel)) return;
         for (DamageStage stage : stages) {
             if (!stage.apply(hitData)) break; // falseで中断（例: Miss）
         }

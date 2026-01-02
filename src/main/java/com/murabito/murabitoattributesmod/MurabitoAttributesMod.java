@@ -2,6 +2,7 @@ package com.murabito.murabitoattributesmod;
 
 import com.mojang.logging.LogUtils;
 import com.murabito.murabitoattributesmod.attributes.CustomAttributes;
+import com.murabito.murabitoattributesmod.potion.ModEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,6 +36,7 @@ public class MurabitoAttributesMod
         modEventBus.addListener(this::addCreative);
 
         CustomAttributes.register();
+        ModEffects.EFFECTS.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
