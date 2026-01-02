@@ -87,7 +87,7 @@ public class ModifierStage implements DamageStage {
             if(hitData.flags.evaded) dc.base*=0.33;//部分回避の場合ダメージ1/3
         }
         if(hitData.flags.evaded)DamageLog.log(hitData,"[modifier]部分回避によりダメージ1/3");
-        if(hitData.target.hasEffect(ModEffects.SHOCK.get()))DamageLog.log(hitData,"[modifier]感電によりダメージx%.2f".formatted((double)hitData.target.getEffect(ModEffects.SHOCK.get()).getAmplifier()/100));
+        if(hitData.target.hasEffect(ModEffects.SHOCK.get()))DamageLog.log(hitData,"[modifier]感電によりダメージx%.2f".formatted(1+(double)hitData.target.getEffect(ModEffects.SHOCK.get()).getAmplifier()/100));
         hitData.rebuildPreMitigationTotals();
         return true;
     }

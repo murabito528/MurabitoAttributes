@@ -63,7 +63,7 @@ public class AilmentStage implements DamageStage {
                     DamageLog.log(hitData, "[ailment]感電%d%% %.2fs".formatted(level, (double) duration / 20));
                 }
             }else{
-                DamageLog.log(hitData, "[ailment]感電判定に失敗(%.2f)".formatted(shockChance));
+                DamageLog.log(hitData, "[ailment]感電判定に失敗(%.2f%%)".formatted(shockChance*100));
             }
         }
         return true;

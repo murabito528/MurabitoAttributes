@@ -19,7 +19,7 @@ public class CritStage implements DamageStage {
             return true;
         }
 
-        double critChance = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CRITICAL_CHANCE.get());
+        double critChance = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CRITICAL_CHANCE_GLOBAL.get());
         double spellCritChance = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CRITICAL_CHANCE_SPELL.get());
 
         boolean crit;

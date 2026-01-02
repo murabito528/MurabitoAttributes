@@ -197,8 +197,8 @@ public class CustomAttributes {
             register("accuracy", 1.0D, 0.0D, 25565.0D);
 
     /*クリティカル*/
-    public static final RegistryObject<Attribute> CRITICAL_CHANCE =
-            register("critical_chance", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CRITICAL_CHANCE_GLOBAL =
+            register("critical_chance_global", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CRITICAL_CHANCE_SPELL =
             register("critical_chance_spell", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CRITICAL_MULTI_GLOBAL =

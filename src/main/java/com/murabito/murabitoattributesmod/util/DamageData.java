@@ -106,7 +106,7 @@ public class DamageData {
         lightningScale = getAttributeValueOrZero(attacker, CustomAttributes.LIGHTNING_DAMAGE_MORE.get());
         chaosScale = getAttributeValueOrZero(attacker, CustomAttributes.CHAOS_DAMAGE_MORE.get());
 
-        criticalChance = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_CHANCE.get());
+        criticalChance = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_CHANCE_GLOBAL.get());
         criticalMulti = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_MULTI_GLOBAL.get());
         spellCriticalChance = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_CHANCE_SPELL.get());
         spellCriticalMulti = getAttributeValueOrZero(attacker, CustomAttributes.CRITICAL_MULTI_SPELL.get());
