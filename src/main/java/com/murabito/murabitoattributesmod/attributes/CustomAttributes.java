@@ -164,6 +164,9 @@ public class CustomAttributes {
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_TAKEN_AS =
             register("chaos_damage_taken_as", 0.0D, 0.0D, 25565.0D);
 
+    public static final RegistryObject<Attribute> DAMAGE_TAKEN_MULTI =
+            register("damage_taken_multi", 1.0D, 0.0D, 25565.0D);
+
 
     /*反射関係*/
     public static final RegistryObject<Attribute> PHYS_REFLECTION =
@@ -266,7 +269,7 @@ public class CustomAttributes {
     // ---------- 登録用ヘルパー ----------
     private static RegistryObject<Attribute> register(String name, double defaultValue, double min, double max) {
         return ATTRIBUTES.register(name,
-                () -> new RangedAttribute("Attribute.name." + MurabitoAttributesMod.MODID + "." + name,
+                () -> new RangedAttribute("attribute.name." + MurabitoAttributesMod.MODID + "." + name,
                         defaultValue, min, max)
                         .setSyncable(true)
         );

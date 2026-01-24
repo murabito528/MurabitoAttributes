@@ -24,6 +24,7 @@ public class DamageEvent {
         if(!source.is(ModDamageTypeTags.IS_TRACKING)) return;
 
         HitData hitData = HitDataFactory.create(target,attackerEntity,source,event.getAmount(),true);
+        if(hitData==null) return;
         DamagePipeLine.get().process(hitData);
         event.setAmount((float)hitData.getTotalDamagePostMitigation(ModDamageType.PHYSICAL));
     }

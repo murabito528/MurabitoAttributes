@@ -1,0 +1,126 @@
+{
+  "effect.murabitoattributes.shock": "Shock",
+  "effect.murabitoattributes.chill": "Chill",
+  
+  "attribute.name.murabitoattributes.phys_damage_more": "Physical Damage More",
+  "attribute.name.murabitoattributes.phys_damage_increased": "Physical Damage Increased",
+  "attribute.name.murabitoattributes.phys_reduction": "Physical Damage Reduction",
+
+  "attribute.name.murabitoattributes.fire_damage_base": "Fire Damage Base",
+  "attribute.name.murabitoattributes.cold_damage_base": "Cold Damage Base",
+  "attribute.name.murabitoattributes.lightning_damage_base": "Lightning Damage Base",
+  "attribute.name.murabitoattributes.chaos_damage_base": "Chaos Damage Base",
+
+  "attribute.name.murabitoattributes.fire_damage_more": "Fire Damage More",
+  "attribute.name.murabitoattributes.cold_damage_more": "Cold Damage More",
+  "attribute.name.murabitoattributes.lightning_damage_more": "Lightning Damage More",
+  "attribute.name.murabitoattributes.chaos_damage_more": "Chaos Damage More",
+
+  "attribute.name.murabitoattributes.fire_damage_inc": "Fire Damage Increased",
+  "attribute.name.murabitoattributes.cold_damage_inc": "Cold Damage Increased",
+  "attribute.name.murabitoattributes.lightning_damage_inc": "Lightning Damage Increased",
+  "attribute.name.murabitoattributes.chaos_damage_inc": "Chaos Damage Increased",
+
+  "attribute.name.murabitoattributes.fire_resistance": "Fire Resistance",
+  "attribute.name.murabitoattributes.cold_resistance": "Cold Resistance",
+  "attribute.name.murabitoattributes.lightning_resistance": "Lightning Resistance",
+  "attribute.name.murabitoattributes.chaos_resistance": "Chaos Resistance",
+
+  "attribute.name.murabitoattributes.fire_resistance_max": "Max Fire Resistance",
+  "attribute.name.murabitoattributes.cold_resistance_max": "Max Cold Resistance",
+  "attribute.name.murabitoattributes.lightning_resistance_max": "Max Lightning Resistance",
+  "attribute.name.murabitoattributes.chaos_resistance_max": "Max Chaos Resistance",
+
+  "attribute.name.murabitoattributes.fire_penetration": "Fire Penetration",
+  "attribute.name.murabitoattributes.cold_penetration": "Cold Penetration",
+  "attribute.name.murabitoattributes.lightning_penetration": "Lightning Penetration",
+  "attribute.name.murabitoattributes.chaos_penetration": "Chaos Penetration",
+
+  "attribute.name.murabitoattributes.phys_add": "Added Physical Damage",
+  "attribute.name.murabitoattributes.fire_add": "Added Fire Damage",
+  "attribute.name.murabitoattributes.cold_add": "Added Cold Damage",
+  "attribute.name.murabitoattributes.lightning_add": "Added Lightning Damage",
+  "attribute.name.murabitoattributes.chaos_add": "Added Chaos Damage",
+
+  "attribute.name.murabitoattributes.phys_to_fire_damage_conv": "Physical Damage Converted to Fire",
+  "attribute.name.murabitoattributes.phys_to_cold_damage_conv": "Physical Damage Converted to Cold",
+  "attribute.name.murabitoattributes.phys_to_lightning_damage_conv": "Physical Damage Converted to Lightning",
+  "attribute.name.murabitoattributes.phys_to_chaos_damage_conv": "Physical Damage Converted to Chaos",
+
+  "attribute.name.murabitoattributes.lightning_to_cold_damage_conv": "Lightning Damage Converted to Cold",
+  "attribute.name.murabitoattributes.lightning_to_fire_damage_conv": "Lightning Damage Converted to Fire",
+  "attribute.name.murabitoattributes.lightning_to_chaos_damage_conv": "Lightning Damage Converted to Chaos",
+
+  "attribute.name.murabitoattributes.cold_to_fire_damage_conv": "Cold Damage Converted to Fire",
+  "attribute.name.murabitoattributes.cold_to_chaos_damage_conv": "Cold Damage Converted to Chaos",
+
+  "attribute.name.murabitoattributes.fire_to_chaos_damage_conv": "Fire Damage Converted to Chaos",
+
+  "attribute.name.murabitoattributes.phys_to_fire_damage_extra": "Gain Physical Damage as Extra Fire",
+  "attribute.name.murabitoattributes.phys_to_cold_damage_extra": "Gain Physical Damage as Extra Cold",
+  "attribute.name.murabitoattributes.phys_to_lightning_damage_extra": "Gain Physical Damage as Extra Lightning",
+  "attribute.name.murabitoattributes.phys_to_chaos_damage_extra": "Gain Physical Damage as Extra Chaos",
+
+  "attribute.name.murabitoattributes.lightning_to_cold_damage_extra": "Gain Lightning Damage as Extra Cold",
+  "attribute.name.murabitoattributes.lightning_to_fire_damage_extra": "Gain Lightning Damage as Extra Fire",
+  "attribute.name.murabitoattributes.lightning_to_chaos_damage_extra": "Gain Lightning Damage as Extra Chaos",
+
+  "attribute.name.murabitoattributes.cold_to_fire_damage_extra": "Gain Cold Damage as Extra Fire",
+  "attribute.name.murabitoattributes.cold_to_chaos_damage_extra": "Gain Cold Damage as Extra Chaos",
+
+  "attribute.name.murabitoattributes.fire_to_chaos_damage_extra": "Gain Fire Damage as Extra Chaos",
+
+  "attribute.name.murabitoattributes.fire_damage_taken_as": "Physical Damage Taken as Fire",
+  "attribute.name.murabitoattributes.cold_damage_taken_as": "Physical Damage Taken as Cold",
+  "attribute.name.murabitoattributes.lightning_damage_taken_as": "Physical Damage Taken as Lightning",
+  "attribute.name.murabitoattributes.chaos_damage_taken_as": "Physical Damage Taken as Chaos",
+
+  "attribute.name.murabitoattributes.damage_taken_multi": "Damage Taken Multiplier",
+
+  "attribute.name.murabitoattributes.physics_reflection": "Physical Damage Reflected",
+  "attribute.name.murabitoattributes.fire_reflection": "Fire Damage Reflected",
+  "attribute.name.murabitoattributes.cold_reflection": "Cold Damage Reflected",
+  "attribute.name.murabitoattributes.lightning_reflection": "Lightning Damage Reflected",
+  "attribute.name.murabitoattributes.chaos_reflection": "Chaos Damage Reflected",
+
+  "attribute.name.murabitoattributes.block_chance": "Block Chance",
+  "attribute.name.murabitoattributes.spell_block_chance": "Spell Block Chance",
+  "attribute.name.murabitoattributes.block_chance_max": "Max Block Chance",
+
+  "attribute.name.murabitoattributes.evasion_chance": "Evasion Chance",
+  "attribute.name.murabitoattributes.evasion_chance_max": "Max Evasion Chance",
+
+  "attribute.name.murabitoattributes.accuracy": "Accuracy",
+
+  "attribute.name.murabitoattributes.critical_chance_global": "Global Critical Strike Chance",
+  "attribute.name.murabitoattributes.critical_chance_spell": "Spell Critical Strike Chance",
+  "attribute.name.murabitoattributes.critical_multi_global": "Global Critical Strike Multiplier",
+  "attribute.name.murabitoattributes.critical_multi_spell": "Spell Critical Strike Multiplier",
+
+  "attribute.name.murabitoattributes.critical_damage_less": "Reduced Extra Damage from Critical Strikes",
+
+  "attribute.name.murabitoattributes.ignite_chance": "Chance to Ignite",
+  "attribute.name.murabitoattributes.freeze_chance": "Chance to Freeze",
+  "attribute.name.murabitoattributes.shock_chance": "Chance to Shock",
+
+  "attribute.name.murabitoattributes.ignite_time_inc": "Ignite Duration Increased",
+  "attribute.name.murabitoattributes.freeze_time_inc": "Freeze Duration Increased",
+  "attribute.name.murabitoattributes.chill_time_inc": "Chill Duration Increased",
+  "attribute.name.murabitoattributes.shock_time_inc": "Shock Duration Increased",
+
+  "attribute.name.murabitoattributes.ignite_effect_inc": "Ignite Effect Increased",
+  "attribute.name.murabitoattributes.freeze_effect_inc": "Freeze Effect Increased",
+  "attribute.name.murabitoattributes.chill_effect_inc": "Chill Effect Increased",
+  "attribute.name.murabitoattributes.shock_effect_inc": "Shock Effect Increased",
+
+  "attribute.name.murabitoattributes.life_leech": "Life Leech",
+  "attribute.name.murabitoattributes.life_leech_cap_per_leech": "Life Leech Cap per Instance",
+  "attribute.name.murabitoattributes.life_leech_cap_per_sec": "Life Leech Cap per Second",
+  "attribute.name.murabitoattributes.life_leech_instant": "Instant Life Leech",
+
+  "attribute.name.murabitoattributes.life_gain_on_hit": "Life Gain on Hit",
+
+  "attribute.name.murabitoattributes.endurance_charge_max": "Max Endurance Charges",
+  "attribute.name.murabitoattributes.frenzy_charge_max": "Max Frenzy Charges",
+  "attribute.name.murabitoattributes.power_charge_max": "Max Power Charges"
+}

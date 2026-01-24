@@ -1,0 +1,126 @@
+{
+  "effect.murabitoattributes.shock": "感電",
+  "effect.murabitoattributes.chill": "冷却",
+
+  "attribute.name.murabitoattributes.phys_damage_more": "物理ダメージ上昇",
+  "attribute.name.murabitoattributes.phys_damage_increased": "物理ダメージ増加",
+  "attribute.name.murabitoattributes.phys_reduction": "物理ダメージ軽減",
+
+  "attribute.name.murabitoattributes.fire_damage_base": "火ダメージ基礎値",
+  "attribute.name.murabitoattributes.cold_damage_base": "冷気ダメージ基礎値",
+  "attribute.name.murabitoattributes.lightning_damage_base": "雷ダメージ基礎値",
+  "attribute.name.murabitoattributes.chaos_damage_base": "混沌ダメージ基礎値",
+
+  "attribute.name.murabitoattributes.fire_damage_more": "火ダメージ上昇",
+  "attribute.name.murabitoattributes.cold_damage_more": "冷気ダメージ上昇",
+  "attribute.name.murabitoattributes.lightning_damage_more": "雷ダメージ上昇",
+  "attribute.name.murabitoattributes.chaos_damage_more": "混沌ダメージ上昇",
+
+  "attribute.name.murabitoattributes.fire_damage_inc": "火ダメージ増加",
+  "attribute.name.murabitoattributes.cold_damage_inc": "冷気ダメージ増加",
+  "attribute.name.murabitoattributes.lightning_damage_inc": "雷ダメージ増加",
+  "attribute.name.murabitoattributes.chaos_damage_inc": "混沌ダメージ増加",
+
+  "attribute.name.murabitoattributes.fire_resistance": "火耐性",
+  "attribute.name.murabitoattributes.cold_resistance": "冷気耐性",
+  "attribute.name.murabitoattributes.lightning_resistance": "雷耐性",
+  "attribute.name.murabitoattributes.chaos_resistance": "混沌耐性",
+
+  "attribute.name.murabitoattributes.fire_resistance_max": "最大火耐性",
+  "attribute.name.murabitoattributes.cold_resistance_max": "最大冷気耐性",
+  "attribute.name.murabitoattributes.lightning_resistance_max": "最大雷耐性",
+  "attribute.name.murabitoattributes.chaos_resistance_max": "最大混沌耐性",
+
+  "attribute.name.murabitoattributes.fire_penetration": "火耐性貫通",
+  "attribute.name.murabitoattributes.cold_penetration": "冷気耐性貫通",
+  "attribute.name.murabitoattributes.lightning_penetration": "雷耐性貫通",
+  "attribute.name.murabitoattributes.chaos_penetration": "混沌耐性貫通",
+
+  "attribute.name.murabitoattributes.phys_add": "追加物理ダメージ",
+  "attribute.name.murabitoattributes.fire_add": "追加火ダメージ",
+  "attribute.name.murabitoattributes.cold_add": "追加冷気ダメージ",
+  "attribute.name.murabitoattributes.lightning_add": "追加雷ダメージ",
+  "attribute.name.murabitoattributes.chaos_add": "追加混沌ダメージ",
+
+  "attribute.name.murabitoattributes.phys_to_fire_damage_conv": "物理ダメージを火ダメージとして与える",
+  "attribute.name.murabitoattributes.phys_to_cold_damage_conv": "物理ダメージを冷気ダメージとして与える",
+  "attribute.name.murabitoattributes.phys_to_lightning_damage_conv": "物理ダメージを雷ダメージとして与える",
+  "attribute.name.murabitoattributes.phys_to_chaos_damage_conv": "物理ダメージを混沌ダメージとして与える",
+
+  "attribute.name.murabitoattributes.lightning_to_cold_damage_conv": "雷ダメージを冷気ダメージとして与える",
+  "attribute.name.murabitoattributes.lightning_to_fire_damage_conv": "雷ダメージを火ダメージとして与える",
+  "attribute.name.murabitoattributes.lightning_to_chaos_damage_conv": "雷ダメージを混沌ダメージとして与える",
+
+  "attribute.name.murabitoattributes.cold_to_fire_damage_conv": "冷気ダメージを火ダメージとして与える",
+  "attribute.name.murabitoattributes.cold_to_chaos_damage_conv": "冷気ダメージを混沌ダメージとして与える",
+
+  "attribute.name.murabitoattributes.fire_to_chaos_damage_conv": "火ダメージを混沌ダメージとして与える",
+
+  "attribute.name.murabitoattributes.phys_to_fire_damage_extra": "物理ダメージの一部を追加の火ダメージとして獲得",
+  "attribute.name.murabitoattributes.phys_to_cold_damage_extra": "物理ダメージの一部を追加の冷気ダメージとして獲得",
+  "attribute.name.murabitoattributes.phys_to_lightning_damage_extra": "物理ダメージの一部を追加の雷ダメージとして獲得",
+  "attribute.name.murabitoattributes.phys_to_chaos_damage_extra": "物理ダメージの一部を追加の混沌ダメージとして獲得",
+
+  "attribute.name.murabitoattributes.lightning_to_cold_damage_extra": "雷ダメージの一部を追加の冷気ダメージとして獲得",
+  "attribute.name.murabitoattributes.lightning_to_fire_damage_extra": "雷ダメージの一部を追加の火ダメージとして獲得",
+  "attribute.name.murabitoattributes.lightning_to_chaos_damage_extra": "雷ダメージの一部を追加の混沌ダメージとして獲得",
+
+  "attribute.name.murabitoattributes.cold_to_fire_damage_extra": "冷気ダメージの一部を追加の火ダメージとして獲得",
+  "attribute.name.murabitoattributes.cold_to_chaos_damage_extra": "冷気ダメージの一部を追加の混沌ダメージとして獲得",
+
+  "attribute.name.murabitoattributes.fire_to_chaos_damage_extra": "火ダメージの一部を追加の混沌ダメージとして獲得",
+
+  "attribute.name.murabitoattributes.fire_damage_taken_as": "被物理ダメージを火ダメージとして受ける",
+  "attribute.name.murabitoattributes.cold_damage_taken_as": "被物理ダメージを冷気ダメージとして受ける",
+  "attribute.name.murabitoattributes.lightning_damage_taken_as": "被物理ダメージを雷ダメージとして受ける",
+  "attribute.name.murabitoattributes.chaos_damage_taken_as": "被物理ダメージを混沌ダメージとして受ける",
+
+  "attribute.name.murabitoattributes.damage_taken_multi": "被ダメージ倍率",
+
+  "attribute.name.murabitoattributes.physics_reflection": "物理反射",
+  "attribute.name.murabitoattributes.fire_reflection": "火反射",
+  "attribute.name.murabitoattributes.cold_reflection": "冷気反射",
+  "attribute.name.murabitoattributes.lightning_reflection": "雷反射",
+  "attribute.name.murabitoattributes.chaos_reflection": "混沌反射",
+
+  "attribute.name.murabitoattributes.block_chance": "ブロック率",
+  "attribute.name.murabitoattributes.spell_block_chance": "スペルブロック率",
+  "attribute.name.murabitoattributes.block_chance_max": "最大ブロック率",
+
+  "attribute.name.murabitoattributes.evasion_chance": "回避率",
+  "attribute.name.murabitoattributes.evasion_chance_max": "最大回避率",
+
+  "attribute.name.murabitoattributes.accuracy": "命中率",
+
+  "attribute.name.murabitoattributes.critical_chance_global": "グローバルクリティカル率",
+  "attribute.name.murabitoattributes.critical_chance_spell": "スペルクリティカル率",
+  "attribute.name.murabitoattributes.critical_multi_global": "グローバルクリティカル倍率",
+  "attribute.name.murabitoattributes.critical_multi_spell": "スペルクリティカル倍率",
+
+  "attribute.name.murabitoattributes.critical_damage_less": "被クリティカル追加ダメージ軽減",
+
+  "attribute.name.murabitoattributes.ignite_chance": "発火確率",
+  "attribute.name.murabitoattributes.freeze_chance": "凍結確率",
+  "attribute.name.murabitoattributes.shock_chance": "感電確率",
+
+  "attribute.name.murabitoattributes.ignite_time_inc": "発火時間増加",
+  "attribute.name.murabitoattributes.freeze_time_inc": "凍結時間増加",
+  "attribute.name.murabitoattributes.chill_time_inc": "冷却時間増加",
+  "attribute.name.murabitoattributes.shock_time_inc": "感電時間増加",
+
+  "attribute.name.murabitoattributes.ignite_effect_inc": "発火効果増加",
+  "attribute.name.murabitoattributes.freeze_effect_inc": "凍結効果増加",
+  "attribute.name.murabitoattributes.chill_effect_inc": "冷却効果増加",
+  "attribute.name.murabitoattributes.shock_effect_inc": "感電効果増加",
+
+  "attribute.name.murabitoattributes.life_leech": "ライフリーチ",
+  "attribute.name.murabitoattributes.life_leech_cap_per_leech": "リーチ上限",
+  "attribute.name.murabitoattributes.life_leech_cap_per_sec": "毎秒リーチ上限",
+  "attribute.name.murabitoattributes.life_leech_instant": "即時リーチ割合",
+
+  "attribute.name.murabitoattributes.life_gain_on_hit": "ヒット時ライフ獲得",
+
+  "attribute.name.murabitoattributes.endurance_charge_max": "最大エンデュランスチャージ",
+  "attribute.name.murabitoattributes.frenzy_charge_max": "最大フレンジーチャージ",
+  "attribute.name.murabitoattributes.power_charge_max": "最大パワーチャージ"
+}

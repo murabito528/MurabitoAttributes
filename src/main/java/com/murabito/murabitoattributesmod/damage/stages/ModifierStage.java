@@ -33,6 +33,9 @@ public class ModifierStage implements DamageStage {
         double chaosMore = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CHAOS_DAMAGE_MORE.get());
 
 
+        double damageTakenMulti = Util.getAttributeValueOrZero(hitData.target , CustomAttributes.DAMAGE_TAKEN_MULTI.get());
+
+
         double criticalMultiGlobal = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CRITICAL_MULTI_GLOBAL.get());
         double criticalMultiSpell = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CRITICAL_MULTI_SPELL.get());
 
@@ -67,24 +70,20 @@ public class ModifierStage implements DamageStage {
                 dc.criticalMultiTotal+=criticalMultiGlobal;
                 if(hitData.flags.spell)dc.criticalMultiTotal+=criticalMultiSpell;
 
-                DamageLog.log(hitData,
-                        "[modifier]CRITICAL %.2f x%.2f"
-                                .formatted(
-                                        dc.base,
-                                        dc.criticalMultiTotal
-                                )
-                );
+                DamageLog.log(hitData,"[modifier]CRITICAL %.2f x%.2f".formatted(dc.base,dc.criticalMultiTotal));
                 dc.base*=dc.criticalMultiTotal;
 
                 dc.base=Math.max(dc.base * (1-criticalMultiLess),0);
             }
-
+            /*
             if(hitData.target.hasEffect(ModEffects.SHOCK.get())){
                 int level = hitData.target.getEffect(ModEffects.SHOCK.get()).getAmplifier();
                 dc.base *=1+((double)level/100);
-            }
+            }*/
 
             if(hitData.flags.evaded) dc.base*=0.33;//部分回避の場合ダメージ1/3
+
+            dc.base*=damageTakenMulti;
         }
         if(hitData.flags.evaded)DamageLog.log(hitData,"[modifier]部分回避によりダメージ1/3");
         if(hitData.target.hasEffect(ModEffects.SHOCK.get()))DamageLog.log(hitData,"[modifier]感電によりダメージx%.2f".formatted(1+(double)hitData.target.getEffect(ModEffects.SHOCK.get()).getAmplifier()/100));

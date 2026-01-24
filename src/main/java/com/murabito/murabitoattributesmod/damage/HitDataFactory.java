@@ -35,6 +35,10 @@ public class HitDataFactory {
             }
         }
 
+        if(dc==null){
+            return null;
+        }
+
         HitFlags flags = new HitFlags();
         flags.canOnHit=canOnHit;
 

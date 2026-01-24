@@ -22,7 +22,6 @@ public class DamagePipeLine {
 
         stages.add(new AddDamageStage());//A~Bの追加ダメージを与える
         stages.add(new ConvDamageStage());//AダメージのB%をCダメージに変換する&AダメージのB%をCダメージとして追加する
-        //stages.add(new GainDamageStage());//AダメージのB%をCダメージとして追加する
 
 
         stages.add(new ModifierStage());//inc/more/クリティカル倍率

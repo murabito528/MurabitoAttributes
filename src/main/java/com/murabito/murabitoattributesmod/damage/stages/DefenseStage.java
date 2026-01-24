@@ -20,10 +20,15 @@ public class DefenseStage implements DamageStage {
         double fireResistanceMax= Util.getAttributeValueOrZero(hitData.target , CustomAttributes.FIRE_RESISTANCE_MAX.get());
         double chaosResistanceMax= Util.getAttributeValueOrZero(hitData.target , CustomAttributes.CHAOS_RESISTANCE_MAX.get());
 
-        lightningResistance=Math.min(lightningResistance,lightningResistanceMax);
-        coldResistance=Math.min(coldResistance,coldResistanceMax);
-        fireResistance=Math.min(fireResistance,fireResistanceMax);
-        chaosResistance=Math.min(chaosResistance,chaosResistanceMax);
+        double lightningPenetrate= Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.LIGHTNING_PENETRATION.get());
+        double coldPenetrate= Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.COLD_PENETRATION.get());
+        double firePenetrate= Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.FIRE_PENETRATION.get());
+        double chaosPenetrate= Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CHAOS_PENETRATION.get());
+
+        lightningResistance=Math.min(lightningResistance,lightningResistanceMax)-lightningPenetrate;
+        coldResistance=Math.min(coldResistance,coldResistanceMax)-coldPenetrate;
+        fireResistance=Math.min(fireResistance,fireResistanceMax)-firePenetrate;
+        chaosResistance=Math.min(chaosResistance,chaosResistanceMax)-chaosPenetrate;
 
         DamageLog.log(hitData,String.format("[Defence]物理:%.1f%% 雷:%.1f%% 冷気:%.1f%% 火:%.1f%% 混沌:%.1f%%",
                 physReduction*100, lightningResistance*100, coldResistance*100, fireResistance*100, chaosResistance*100));
