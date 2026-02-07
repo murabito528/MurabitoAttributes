@@ -1,0 +1,19 @@
+{
+  "id": "murabitoattributes:inc_dot_multi",
+  "type": "suffix",
+  "name": "#% to Damage over Time Multiplier",
+  "groups": ["inc_dot_multi"],
+  "target": ["weapon"],
+  "tags": ["weapon","damage"],
+
+  "tiers": [
+    { "tier": 8, "min_ilvl": 1, "weight": 1000 },
+    { "tier": 7, "min_ilvl": 11, "weight": 1000 },
+    { "tier": 6, "min_ilvl": 22, "weight": 1000 },
+    { "tier": 5, "min_ilvl": 30, "weight": 1000 },
+    { "tier": 4, "min_ilvl": 37, "weight": 1000 },
+    { "tier": 3, "min_ilvl": 45, "weight": 1000 },
+    { "tier": 2, "min_ilvl": 60, "weight": 1000 },
+    { "tier": 1, "min_ilvl": 77, "weight": 1000 }
+  ]
+}

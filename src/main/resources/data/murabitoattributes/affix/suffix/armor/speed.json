@@ -1,0 +1,11 @@
+{
+  "id": "murabitoattributes:speed_t1",
+  "type": "suffix",
+  "name": "+#% Movement Speed",
+  "groups": ["movement_speed"],
+  "tags": ["armor", "accessory"],
+
+  "tiers": [
+    { "tier": 1, "min_ilvl": 1, "weight": 1000 }
+  ]
+}

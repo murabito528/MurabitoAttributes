@@ -1,0 +1,21 @@
+{
+  "id": "murabitoattributes:add_fire_damage",
+  "type": "prefix",
+  "name": "+# to Fire Damage",
+  "groups": ["added_fire_damage"],
+  "target": ["weapon"],
+  "tags": ["weapon","damage", "attack", "fire", "elemental"],
+
+  "tiers": [
+    { "tier": 10, "min_ilvl": 1, "weight": 1200 },
+    { "tier": 9, "min_ilvl": 11, "weight": 1200 },
+    { "tier": 8, "min_ilvl": 18, "weight": 1200 },
+    { "tier": 7, "min_ilvl": 26, "weight": 1200 },
+    { "tier": 6, "min_ilvl": 33, "weight": 1200 },
+    { "tier": 5, "min_ilvl": 42, "weight": 1200 },
+    { "tier": 4, "min_ilvl": 51, "weight": 1200 },
+    { "tier": 3, "min_ilvl": 62, "weight": 960 },
+    { "tier": 2, "min_ilvl": 74, "weight": 420 },
+    { "tier": 1, "min_ilvl": 82, "weight": 108 }
+  ]
+}

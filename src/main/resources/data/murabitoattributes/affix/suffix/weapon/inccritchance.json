@@ -1,0 +1,17 @@
+{
+  "id": "murabitoattributes:inc_crit_chance",
+  "type": "suffix",
+  "name": "#% increased Critical Chance",
+  "groups": ["inc_crit_chance"],
+  "target": ["weapon"],
+  "tags": ["weapon","critical", "attack"],
+
+  "tiers": [
+    { "tier": 6, "min_ilvl": 1, "weight": 1000 },
+    { "tier": 5, "min_ilvl": 20, "weight": 1000 },
+    { "tier": 4, "min_ilvl": 30, "weight": 1000 },
+    { "tier": 3, "min_ilvl": 44, "weight": 1000 },
+    { "tier": 2, "min_ilvl": 59, "weight": 1000 },
+    { "tier": 1, "min_ilvl": 73, "weight": 1000 }
+  ]
+}

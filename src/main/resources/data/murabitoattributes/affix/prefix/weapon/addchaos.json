@@ -1,0 +1,12 @@
+{
+  "id": "murabitoattributes:add_chaos_damage",
+  "type": "prefix",
+  "name": "+# to Chaos Damage",
+  "groups": ["added_chaos_damage"],
+  "target": ["weapon"],
+  "tags": ["weapon","damage", "attack", "chaos"],
+
+  "tiers": [
+    { "tier": 1, "min_ilvl": 83, "weight": 600 }
+  ]
+}

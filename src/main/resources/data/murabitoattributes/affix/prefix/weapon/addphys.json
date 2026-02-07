@@ -1,0 +1,20 @@
+{
+  "id": "murabitoattributes:add_phys_damage",
+  "type": "prefix",
+  "name": "+# to Physical Damage",
+  "groups": ["added_physical_damage"],
+  "target": ["weapon"],
+  "tags": ["weapon","damage", "attack", "physical"],
+
+  "tiers": [
+    { "tier": 9, "min_ilvl": 2, "weight": 1000 },
+    { "tier": 8, "min_ilvl": 13, "weight": 1000 },
+    { "tier": 7, "min_ilvl": 21, "weight": 1000 },
+    { "tier": 6, "min_ilvl": 29, "weight": 1000 },
+    { "tier": 5, "min_ilvl": 36, "weight": 1000 },
+    { "tier": 4, "min_ilvl": 46, "weight": 800 },
+    { "tier": 3, "min_ilvl": 54, "weight": 600 },
+    { "tier": 2, "min_ilvl": 65, "weight": 400 },
+    { "tier": 1, "min_ilvl": 77, "weight": 208 }
+  ]
+}

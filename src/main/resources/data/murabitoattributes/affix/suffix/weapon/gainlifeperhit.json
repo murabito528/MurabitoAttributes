@@ -1,0 +1,19 @@
+{
+  "id": "murabitoattributes:gain_life_per_hit",
+  "type": "suffix",
+  "name": "Gain # Life per Enemy Hit",
+  "groups": ["gain_life_per_Hit"],
+  "target": ["weapon"],
+  "tags": ["weapon","life","attack"],
+
+  "tiers": [
+    { "tier": 8, "min_ilvl": 8, "weight": 500 },
+    { "tier": 7, "min_ilvl": 20, "weight": 500 },
+    { "tier": 6, "min_ilvl": 30, "weight": 500 },
+    { "tier": 5, "min_ilvl": 40, "weight": 500 },
+    { "tier": 4, "min_ilvl": 50, "weight": 500 },
+    { "tier": 3, "min_ilvl": 60, "weight": 500 },
+    { "tier": 2, "min_ilvl": 70, "weight": 500 },
+    { "tier": 1, "min_ilvl": 80, "weight": 500 }
+  ]
+}

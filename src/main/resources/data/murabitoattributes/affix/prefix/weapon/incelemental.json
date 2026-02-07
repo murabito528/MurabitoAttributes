@@ -1,0 +1,17 @@
+{
+  "id": "murabitoattributes:inc_elemental_damage",
+  "type": "prefix",
+  "name": "#% increased Elemental Damage",
+  "groups": ["inc_elemental_damage"],
+  "target": ["weapon"],
+  "tags": ["weapon","damage", "attack", "elemental"],
+
+  "tiers": [
+    { "tier": 6, "min_ilvl": 4, "weight": 300 },
+    { "tier": 5, "min_ilvl": 15, "weight": 300 },
+    { "tier": 4, "min_ilvl": 30, "weight": 300 },
+    { "tier": 3, "min_ilvl": 60, "weight": 300 },
+    { "tier": 2, "min_ilvl": 81, "weight": 300 },
+    { "tier": 1, "min_ilvl": 86, "weight": 300 }
+  ]
+}

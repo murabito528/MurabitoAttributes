@@ -1,0 +1,21 @@
+{
+  "id": "murabitoattributes:add_lightning_damage",
+  "type": "prefix",
+  "name": "+# to Lightning Damage",
+  "groups": ["added_lightning_damage"],
+  "target": ["weapon"],
+  "tags": ["weapon","damage", "attack", "lightning", "elemental"],
+
+  "tiers": [
+    { "tier": 10, "min_ilvl": 3, "weight": 1200 },
+    { "tier": 9, "min_ilvl": 13, "weight": 1200 },
+    { "tier": 8, "min_ilvl": 19, "weight": 1200 },
+    { "tier": 7, "min_ilvl": 31, "weight": 1200 },
+    { "tier": 6, "min_ilvl": 34, "weight": 1200 },
+    { "tier": 5, "min_ilvl": 42, "weight": 1200 },
+    { "tier": 4, "min_ilvl": 51, "weight": 1200 },
+    { "tier": 3, "min_ilvl": 63, "weight": 960 },
+    { "tier": 2, "min_ilvl": 74, "weight": 420 },
+    { "tier": 1, "min_ilvl": 82, "weight": 108 }
+  ]
+}

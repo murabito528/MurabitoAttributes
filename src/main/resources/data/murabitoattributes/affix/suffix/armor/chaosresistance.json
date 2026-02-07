@@ -1,0 +1,14 @@
+{
+  "id": "murabitoattributes:chaos_resistance",
+  "type": "suffix",
+  "name": "+# Chaos Resistance",
+  "groups": ["chaos_resistance"],
+  "tags": ["armor", "attack", "chaos"],
+
+  "tiers": [
+    { "tier": 1, "min_ilvl": 1, "weight": 1000 },
+    { "tier": 2, "min_ilvl": 1, "weight": 1000 },
+    { "tier": 3, "min_ilvl": 1, "weight": 1000 },
+    { "tier": 4, "min_ilvl": 1, "weight": 1000 }
+  ]
+}
