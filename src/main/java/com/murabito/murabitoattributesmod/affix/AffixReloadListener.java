@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.murabito.murabitoattributesmod.affix.records.AffixDefinition;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -34,13 +35,6 @@ public class AffixReloadListener extends SimpleJsonResourceReloadListener {
             if (AffixRegistry.contains(def.id())) {
                 throw new IllegalStateException("Duplicate affix id: " + def.id() + " (file=" + fileKey + ")");
             }
-
-            //（任意）prefixフォルダにsuffixが入ってる事故チェック
-            String p = fileKey.getPath();
-            if (p.startsWith("affix/prefix/") && def.type() != AffixType.PREFIX)
-                throw new IllegalArgumentException("File is in affix/prefix but type is " + def.type() + ": " + fileKey);
-            if (p.startsWith("affix/suffix/") && def.type() != AffixType.SUFFIX)
-                throw new IllegalArgumentException("File is in affix/suffix but type is " + def.type() + ": " + fileKey);
 
             AffixRegistry.register(def);
         }

@@ -20,7 +20,7 @@ public class CustomAttributes {
     //public static final RegistryObject<Attribute> PHYS_DAMAGE_EXTRA =
     //        register("phys_damage_extra", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> PHYS_DAMAGE_MORE =
-            register("phys_damage_more", 0.0D, 0.0D, 25565.0D);
+            register("phys_damage_more", 1.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> PHYS_DAMAGE_INC =
             register("phys_damage_increased", 0.0D, 0.0D, 25565.0D);
 
@@ -40,13 +40,13 @@ public class CustomAttributes {
 
     /*非物理属性more*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_MORE =
-            register("fire_damage_more", 0.0D, 0.0D, 25565.0D);
+            register("fire_damage_more", 1.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> COLD_DAMAGE_MORE =
-            register("cold_damage_more", 0.0D, 0.0D, 25565.0D);
+            register("cold_damage_more", 1.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> LIGHTNING_DAMAGE_MORE =
-            register("lightning_damage_more", 0.0D, 0.0D, 25565.0D);
+            register("lightning_damage_more", 1.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_MORE =
-            register("chaos_damage_more", 0.0D, 0.0D, 25565.0D);
+            register("chaos_damage_more", 1.0D, 0.0D, 25565.0D);
 
     /*非物理属性inc*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_INC =
@@ -57,6 +57,8 @@ public class CustomAttributes {
             register("lightning_damage_inc", 0.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> CHAOS_DAMAGE_INC =
             register("chaos_damage_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> ELEMENTAL_DAMAGE_INC =
+            register("elemental_damage_inc", 0.0D, 0.0D, 25565.0D);
 
     /*非物理属性耐性*/
     public static final RegistryObject<Attribute> FIRE_RESISTANCE =
@@ -89,16 +91,26 @@ public class CustomAttributes {
             register("chaos_penetration", 0.0D, 0.0D, 25565.0D);
 
     /*追加ダメージ*/
-    public static final RegistryObject<Attribute> PHYS_ADD =
-            register("phys_add", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> FIRE_ADD =
-            register("fire_add", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> COLD_ADD =
-            register("cold_add", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> LIGHTNING_ADD =
-            register("lightning_add", 0.0D, 0.0D, 25565.0D);
-    public static final RegistryObject<Attribute> CHAOS_ADD =
-            register("chaos_add", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> PHYS_ADD_MIN =
+            register("phys_add_min", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> FIRE_ADD_MIN =
+            register("fire_add_min", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_ADD_MIN =
+            register("cold_add_min", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_ADD_MIN =
+            register("lightning_add_min", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHAOS_ADD_MIN =
+            register("chaos_add_min", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> PHYS_ADD_MAX =
+            register("phys_add_max", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> FIRE_ADD_MAX =
+            register("fire_add_max", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> COLD_ADD_MAX =
+            register("cold_add_max", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIGHTNING_ADD_MAX =
+            register("lightning_add_max", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> CHAOS_ADD_MAX =
+            register("chaos_add_max", 0.0D, 0.0D, 25565.0D);
 
     /*ダメージ変換関係*/
     /*ダメージ変換は物理→雷→冷気→火→混沌の順に限定される*/
@@ -254,6 +266,8 @@ public class CustomAttributes {
     /*ライフゲイン系*/
     public static final RegistryObject<Attribute> LIFE_GAIN_ON_HIT =
             register("life_gain_on_hit", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> LIFE_GAIN_ON_KILL =
+            register("life_gain_on_kill", 0.0D, 0.0D, 25565.0D);
 
     /*チャージ系*/
     public static final RegistryObject<Attribute> ENDURANCE_CHARGE_MAX =
@@ -262,6 +276,12 @@ public class CustomAttributes {
             register("frenzy_charge_max", 3.0D, 0.0D, 25565.0D);
     public static final RegistryObject<Attribute> POWER_CHARGE_MAX =
             register("power_charge_max", 3.0D, 0.0D, 25565.0D);
+
+    /*持続ダメージ系*/
+    public static final RegistryObject<Attribute> DOT_DAMAGE_INC =
+            register("dot_damage_inc", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> DOT_TIME_INC =
+            register("dot_time_inc", 0.0D, 0.0D, 25565.0D);
 
 
 

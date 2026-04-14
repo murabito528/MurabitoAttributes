@@ -1,0 +1,29 @@
+{
+  "id": "murabitoattributes:speed",
+  "type": "prefix",
+  "name": "+#% Movement Speed",
+  "groups": ["movement_speed"],
+  "targets": ["boots"],
+  "tags": ["armor", "speed"],
+
+  "tiers": [
+    { "tier": 6, "min_ilvl": 1, "weight": 1000,
+      "stats":[{"attribute": "minecraft:generic.movement_speed", "op": 1, "min": 10, "max": 10 }]
+    },
+    { "tier": 5, "min_ilvl": 15, "weight": 1000,
+      "stats":[{"attribute": "minecraft:generic.movement_speed", "op": 1, "min": 15, "max": 15 }]
+    },
+    { "tier": 4, "min_ilvl": 30, "weight": 1000,
+      "stats":[{"attribute": "minecraft:generic.movement_speed", "op": 1, "min": 20, "max": 20 }]
+    },
+    { "tier": 3, "min_ilvl": 40, "weight": 1000,
+      "stats":[{"attribute": "minecraft:generic.movement_speed", "op": 1, "min": 25, "max": 25 }]
+    },
+    { "tier": 2, "min_ilvl": 55, "weight": 1000,
+      "stats":[{"attribute": "minecraft:generic.movement_speed", "op": 1, "min": 30, "max": 30 }]
+    },
+    { "tier": 1, "min_ilvl": 86, "weight": 1000,
+      "stats":[{"attribute": "minecraft:generic.movement_speed", "op": 1, "min": 35, "max": 35 }]
+    }
+  ]
+}

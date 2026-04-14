@@ -7,13 +7,20 @@
   "tags": ["weapon","damage"],
 
   "tiers": [
-    { "tier": 8, "min_ilvl": 1, "weight": 1000 },
-    { "tier": 7, "min_ilvl": 11, "weight": 1000 },
-    { "tier": 6, "min_ilvl": 22, "weight": 1000 },
-    { "tier": 5, "min_ilvl": 30, "weight": 1000 },
-    { "tier": 4, "min_ilvl": 37, "weight": 1000 },
-    { "tier": 3, "min_ilvl": 45, "weight": 1000 },
-    { "tier": 2, "min_ilvl": 60, "weight": 1000 },
-    { "tier": 1, "min_ilvl": 77, "weight": 1000 }
+    { "tier": 5, "min_ilvl": 44, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:dot_damage_inc", "op": 0, "min": 0.07, "max": 0.11 }]
+    },
+    { "tier": 4, "min_ilvl": 55, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:dot_damage_inc", "op": 0, "min": 0.12, "max": 0.15 }]
+    },
+    { "tier": 3, "min_ilvl": 68, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:dot_damage_inc", "op": 0, "min": 0.16, "max": 0.19 }]
+    },
+    { "tier": 2, "min_ilvl": 76, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:dot_damage_inc", "op": 0, "min": 0.20, "max": 0.23 }]
+    },
+    { "tier": 1, "min_ilvl": 82, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:dot_damage_inc", "op": 0, "min": 0.24, "max": 0.26 }]
+    }
   ]
 }

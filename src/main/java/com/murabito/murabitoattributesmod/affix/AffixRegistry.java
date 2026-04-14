@@ -1,5 +1,6 @@
 package com.murabito.murabitoattributesmod.affix;
 
+import com.murabito.murabitoattributesmod.affix.records.AffixDefinition;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.*;

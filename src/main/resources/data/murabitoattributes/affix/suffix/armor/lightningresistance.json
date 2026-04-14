@@ -3,12 +3,32 @@
   "type": "suffix",
   "name": "+# Lightning Resistance",
   "groups": ["lightning_resistance"],
-  "tags": ["armor", "attack", "lightning"],
+  "tags": ["armor", "elemental", "lightning","resistance"],
 
   "tiers": [
-    { "tier": 1, "min_ilvl": 1, "weight": 1000 },
-    { "tier": 2, "min_ilvl": 1, "weight": 1000 },
-    { "tier": 3, "min_ilvl": 1, "weight": 1000 },
-    { "tier": 4, "min_ilvl": 1, "weight": 1000 }
+    { "tier": 8, "min_ilvl": 1, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 6, "max": 11 }]
+    },
+    { "tier": 7, "min_ilvl": 13, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 12, "max": 17 }]
+    },
+    { "tier": 6, "min_ilvl": 25, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 18, "max": 23 }]
+    },
+    { "tier": 5, "min_ilvl": 37, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 24, "max": 29 }]
+    },
+    { "tier": 4, "min_ilvl": 49, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 30, "max": 35 }]
+    },
+    { "tier": 3, "min_ilvl": 60, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 36, "max": 41 }]
+    },
+    { "tier": 2, "min_ilvl": 72, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 42, "max": 45 }]
+    },
+    { "tier": 1, "min_ilvl": 84, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:lightning_resistance", "op": 0, "min": 46, "max": 48 }]
+    }
   ]
 }

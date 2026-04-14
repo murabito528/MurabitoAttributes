@@ -1,21 +1,70 @@
 {
   "id": "murabitoattributes:add_fire_damage",
   "type": "prefix",
-  "name": "+# to Fire Damage",
+  "name": "Adds # to # Fire Damage",
   "groups": ["added_fire_damage"],
   "target": ["weapon"],
   "tags": ["weapon","damage", "attack", "fire", "elemental"],
-
   "tiers": [
-    { "tier": 10, "min_ilvl": 1, "weight": 1200 },
-    { "tier": 9, "min_ilvl": 11, "weight": 1200 },
-    { "tier": 8, "min_ilvl": 18, "weight": 1200 },
-    { "tier": 7, "min_ilvl": 26, "weight": 1200 },
-    { "tier": 6, "min_ilvl": 33, "weight": 1200 },
-    { "tier": 5, "min_ilvl": 42, "weight": 1200 },
-    { "tier": 4, "min_ilvl": 51, "weight": 1200 },
-    { "tier": 3, "min_ilvl": 62, "weight": 960 },
-    { "tier": 2, "min_ilvl": 74, "weight": 420 },
-    { "tier": 1, "min_ilvl": 82, "weight": 108 }
+    { "tier": 10, "min_ilvl": 1, "weight": 1200,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 1, "max": 2 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 3, "max": 4 }
+      ]
+    },
+    { "tier": 9, "min_ilvl": 11, "weight": 1200,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 8, "max": 10 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 15, "max": 18 }
+      ]
+    },
+    { "tier": 8, "min_ilvl": 18, "weight": 1200,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 12, "max": 17 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 25, "max": 29 }
+      ]
+    },
+    { "tier": 7, "min_ilvl": 26, "weight": 1200,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 17, "max": 24 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 35, "max": 41 }
+      ]
+    },
+    { "tier": 6, "min_ilvl": 33, "weight": 1200,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 24, "max": 33 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 49, "max": 57 }
+      ]
+    },
+    { "tier": 5, "min_ilvl": 42, "weight": 1200,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 34, "max": 46 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 68, "max": 80 }
+      ]
+    },
+    { "tier": 4, "min_ilvl": 51, "weight": 1200,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 46, "max": 62 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 93, "max": 107 }
+      ]
+    },
+    { "tier": 3, "min_ilvl": 62, "weight": 960,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 59, "max": 81 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 120, "max": 140 }
+      ]
+    },
+    { "tier": 2, "min_ilvl": 74, "weight": 420,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 74, "max": 101 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 150, "max": 175 }
+      ]
+    },
+    { "tier": 1, "min_ilvl": 82, "weight": 108,
+      "stats": [
+        { "attribute": "murabitoattributes:fire_add_min", "op": 0, "min": 89, "max": 121 },
+        { "attribute": "murabitoattributes:fire_add_max", "op": 0, "min": 180, "max": 210 }
+      ]
+    }
   ]
 }

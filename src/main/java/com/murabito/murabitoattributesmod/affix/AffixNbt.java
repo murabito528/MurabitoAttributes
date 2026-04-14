@@ -1,13 +1,24 @@
 package com.murabito.murabitoattributesmod.affix;
 
+import com.murabito.murabitoattributesmod.affix.records.AffixStat;
+import com.murabito.murabitoattributesmod.affix.records.AffixTier;
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public final class AffixNbt {
@@ -18,6 +29,8 @@ public final class AffixNbt {
     private static final String SUFFIXES = "suffixes";
     private static final String RARITY = "rarity";
     private static final String ILVL = "ilvl";
+
+    private static final String AFFIXNAME = "murabito_affix";
 
     public record AffixInstance(ResourceLocation id, int tier, float roll, String type) {}
 
@@ -79,6 +92,8 @@ public final class AffixNbt {
         c.putInt("tier", tier);
         c.putFloat("roll", clamp01(roll01));
         c.putString("type", type.toString());
+        //c.putString("attribute", );//アイテムには保存しない、attribute適用時にデータベースで確認
+        //c.putString("op", );
         list.add(c);
     }
 
@@ -206,5 +221,71 @@ public final class AffixNbt {
 
     private static String escapeJson(String s) {
         return s.replace("\\", "\\\\").replace("\"", "\\\"");
+    }
+
+    public static void applyAffixAttributes(ItemStack stack){
+        //まず残っているattributeを消す
+        removeAffixAttributes(stack);
+        //デフォルトのattributeをコピー
+        //これをしないと新しいattributeを追加したときにデフォルトの数値が消えるっぽい
+        copyDefaultAttributesToNbt(stack);
+
+        //Nbtからaffixのidを確認してregistryから情報を読む
+        var affixes = read(stack);
+        if (affixes.isEmpty()) return;
+
+        for (var affix : affixes) {
+            var affixDef = AffixRegistry.get(affix.id());
+            List<AffixStat> affixStats = affixDef.tiers().stream()
+                    .filter(t -> t.tier() == affix.tier)
+                    .findFirst()
+                    .map(AffixTier::stats)
+                    .orElse(Collections.emptyList());
+
+            for(var stat : affixStats) {
+                double rawAmount = stat.min() + (stat.max() - stat.min()) * affix.roll;
+                double amount = Math.floor(rawAmount*100)/100;
+
+                //attribute組み立て
+                AttributeModifier attributeModifier = new AttributeModifier(AFFIXNAME, amount, AttributeModifier.Operation.fromValue(stat.op()));
+                //attribute適用(とりあえずメインハンド、後で部位ごとに設定)
+                Attribute attribute = ForgeRegistries.ATTRIBUTES.getValue(stat.attribute());
+                if (attribute != null) {
+                    stack.addAttributeModifier(attribute, attributeModifier, EquipmentSlot.MAINHAND);
+                }
+            }
+        }
+
+        //attribute表示を消す
+        CompoundTag tag = stack.getOrCreateTag();
+        tag.putInt("HideFlags", tag.getInt("HideFlags") | 2);
+    }
+
+    private static void removeAffixAttributes(ItemStack stack){
+        if (stack.hasTag() && stack.getTag().contains("AttributeModifiers", Tag.TAG_LIST)) {
+            // NBTからAttributeModifiersリストを取得
+            ListTag modifiers = stack.getTag().getList("AttributeModifiers", Tag.TAG_COMPOUND);
+
+            modifiers.removeIf(tag -> {
+                CompoundTag compound = (CompoundTag) tag;
+                return compound.getString("Name").equals(AFFIXNAME);
+            });
+
+            // リストが空になったらタグ自体を削除してクリーンアップ
+            if (modifiers.isEmpty()) {
+                stack.getTag().remove("AttributeModifiers");
+            }
+        }
+    }
+
+    private static void copyDefaultAttributesToNbt(ItemStack stack) {
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            var modifiers = stack.getItem().getAttributeModifiers(slot, stack);
+            if (!modifiers.isEmpty()) {
+                for (var entry : modifiers.entries()) {
+                    stack.addAttributeModifier(entry.getKey(), entry.getValue(), slot);
+                }
+            }
+        }
     }
 }

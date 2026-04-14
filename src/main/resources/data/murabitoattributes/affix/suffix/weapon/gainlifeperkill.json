@@ -7,11 +7,23 @@
   "tags": ["weapon","life"],
 
   "tiers": [
-    { "tier": 6, "min_ilvl": 1, "weight": 500 },
-    { "tier": 5, "min_ilvl": 23, "weight": 500 },
-    { "tier": 4, "min_ilvl": 40, "weight": 500 },
-    { "tier": 3, "min_ilvl": 52, "weight": 500 },
-    { "tier": 2, "min_ilvl": 66, "weight": 500 },
-    { "tier": 1, "min_ilvl": 81, "weight": 500 }
+    { "tier": 6, "min_ilvl": 1, "weight": 500,
+      "stats":[{"attribute": "murabitoattributes:life_gain_on_kill", "op": 0, "min": 7, "max": 10 }]
+    },
+    { "tier": 5, "min_ilvl": 23, "weight": 500,
+      "stats":[{"attribute": "murabitoattributes:life_gain_on_kill", "op": 0, "min": 12, "max": 18 }]
+    },
+    { "tier": 4, "min_ilvl": 40, "weight": 500,
+      "stats":[{"attribute": "murabitoattributes:life_gain_on_kill", "op": 0, "min": 24, "max": 32 }]
+    },
+    { "tier": 3, "min_ilvl": 52, "weight": 500,
+      "stats":[{"attribute": "murabitoattributes:life_gain_on_kill", "op": 0, "min": 35, "max": 44 }]
+    },
+    { "tier": 2, "min_ilvl": 66, "weight": 500,
+      "stats":[{"attribute": "murabitoattributes:life_gain_on_kill", "op": 0, "min": 56, "max": 72 }]
+    },
+    { "tier": 1, "min_ilvl": 81, "weight": 500,
+      "stats":[{"attribute": "murabitoattributes:life_gain_on_kill", "op": 0, "min": 84, "max": 110 }]
+    }
   ]
 }

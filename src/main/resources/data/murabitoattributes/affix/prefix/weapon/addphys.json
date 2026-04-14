@@ -1,20 +1,64 @@
 {
   "id": "murabitoattributes:add_phys_damage",
   "type": "prefix",
-  "name": "+# to Physical Damage",
+  "name": "Adds # to # Physical Damage",
   "groups": ["added_physical_damage"],
   "target": ["weapon"],
   "tags": ["weapon","damage", "attack", "physical"],
-
   "tiers": [
-    { "tier": 9, "min_ilvl": 2, "weight": 1000 },
-    { "tier": 8, "min_ilvl": 13, "weight": 1000 },
-    { "tier": 7, "min_ilvl": 21, "weight": 1000 },
-    { "tier": 6, "min_ilvl": 29, "weight": 1000 },
-    { "tier": 5, "min_ilvl": 36, "weight": 1000 },
-    { "tier": 4, "min_ilvl": 46, "weight": 800 },
-    { "tier": 3, "min_ilvl": 54, "weight": 600 },
-    { "tier": 2, "min_ilvl": 65, "weight": 400 },
-    { "tier": 1, "min_ilvl": 77, "weight": 208 }
+    { "tier": 9, "min_ilvl": 2, "weight": 1000,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 1, "max": 1 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 2, "max": 3 }
+      ]
+    },
+    { "tier": 8, "min_ilvl": 13, "weight": 1000,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 4, "max": 5 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 8, "max": 9 }
+      ]
+    },
+    { "tier": 7, "min_ilvl": 21, "weight": 1000,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 6, "max": 9 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 13, "max": 15 }
+      ]
+    },
+    { "tier": 6, "min_ilvl": 29, "weight": 1000,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 8, "max": 12 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 17, "max": 20 }
+      ]
+    },
+    { "tier": 5, "min_ilvl": 36, "weight": 1000,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 11, "max": 14 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 21, "max": 25 }
+      ]
+    },
+    { "tier": 4, "min_ilvl": 46, "weight": 800,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 13, "max": 18 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 27, "max": 31 }
+      ]
+    },
+    { "tier": 3, "min_ilvl": 54, "weight": 600,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 16, "max": 21 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 32, "max": 38 }
+      ]
+    },
+    { "tier": 2, "min_ilvl": 65, "weight": 400,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 19, "max": 25 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 39, "max": 45 }
+      ]
+    },
+    { "tier": 1, "min_ilvl": 77, "weight": 208,
+      "stats": [
+        { "attribute": "murabitoattributes:phys_add_min", "op": 0, "min": 22, "max": 29 },
+        { "attribute": "murabitoattributes:phys_add_max", "op": 0, "min": 45, "max": 52 }
+      ]
+    }
   ]
 }

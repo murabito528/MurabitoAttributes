@@ -25,6 +25,7 @@ public class ModifierStage implements DamageStage {
         double coldInc = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.COLD_DAMAGE_INC.get());
         double fireInc = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.FIRE_DAMAGE_INC.get());
         double chaosInc = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.CHAOS_DAMAGE_INC.get());
+        double elementalInc = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.ELEMENTAL_DAMAGE_INC.get());
 
         double physMore = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.PHYS_DAMAGE_MORE.get());
         double lightningMore = Util.getAttributeValueOrZero(hitData.attacker , CustomAttributes.LIGHTNING_DAMAGE_MORE.get());
@@ -47,21 +48,22 @@ public class ModifierStage implements DamageStage {
             if(dc.affectedTypes.contains(ModDamageType.COLD)) dc.increasedTotal+=coldInc;
             if(dc.affectedTypes.contains(ModDamageType.FIRE)) dc.increasedTotal+=fireInc;
             if(dc.affectedTypes.contains(ModDamageType.CHAOS)) dc.increasedTotal+=chaosInc;
+            if(dc.affectedTypes.contains(ModDamageType.FIRE)||dc.affectedTypes.contains(ModDamageType.COLD)||dc.affectedTypes.contains(ModDamageType.LIGHTNING)) dc.increasedTotal+=elementalInc;
 
             //ここのログちゃんと残してない
             //後でちゃんとする
-            if(dc.affectedTypes.contains(ModDamageType.PHYSICAL)) dc.base*=1+physMore;
-            if(dc.affectedTypes.contains(ModDamageType.LIGHTNING)) dc.base*=1+lightningMore;
-            if(dc.affectedTypes.contains(ModDamageType.COLD)) dc.base*=1+coldMore;
-            if(dc.affectedTypes.contains(ModDamageType.FIRE)) dc.base*=1+fireMore;
-            if(dc.affectedTypes.contains(ModDamageType.CHAOS)) dc.base*=1+chaosMore;
+            if(dc.affectedTypes.contains(ModDamageType.PHYSICAL)) dc.base*=physMore;
+            if(dc.affectedTypes.contains(ModDamageType.LIGHTNING)) dc.base*=lightningMore;
+            if(dc.affectedTypes.contains(ModDamageType.COLD)) dc.base*=coldMore;
+            if(dc.affectedTypes.contains(ModDamageType.FIRE)) dc.base*=fireMore;
+            if(dc.affectedTypes.contains(ModDamageType.CHAOS)) dc.base*=chaosMore;
 
             DamageLog.log(hitData,
                     "[modifier]INC:%s %.2f x%.2f"
                             .formatted(
                                     dc.affectedTypes,
                                     dc.base,
-                                    1 + dc.increasedTotal
+                                    1+dc.increasedTotal
                             )
             );
             dc.base*=1+dc.increasedTotal;

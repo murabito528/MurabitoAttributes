@@ -36,11 +36,16 @@
   "attribute.name.murabitoattributes.lightning_penetration": "Lightning Penetration",
   "attribute.name.murabitoattributes.chaos_penetration": "Chaos Penetration",
 
-  "attribute.name.murabitoattributes.phys_add": "Added Physical Damage",
-  "attribute.name.murabitoattributes.fire_add": "Added Fire Damage",
-  "attribute.name.murabitoattributes.cold_add": "Added Cold Damage",
-  "attribute.name.murabitoattributes.lightning_add": "Added Lightning Damage",
-  "attribute.name.murabitoattributes.chaos_add": "Added Chaos Damage",
+  "attribute.name.murabitoattributes.phys_add_min": "Added Physical Damage Min",
+  "attribute.name.murabitoattributes.fire_add_min": "Added Fire Damage Min",
+  "attribute.name.murabitoattributes.cold_add_min": "Added Cold Damage Min",
+  "attribute.name.murabitoattributes.lightning_add_min": "Added Lightning Damage Min",
+  "attribute.name.murabitoattributes.chaos_add_min": "Added Chaos Damage Min",
+  "attribute.name.murabitoattributes.phys_add_max": "Added Physical Damage Max",
+  "attribute.name.murabitoattributes.fire_add_max": "Added Fire Damage Max",
+  "attribute.name.murabitoattributes.cold_add_max": "Added Cold Damage Max",
+  "attribute.name.murabitoattributes.lightning_add_max": "Added Lightning Damage Max",
+  "attribute.name.murabitoattributes.chaos_add_max": "Added Chaos Damage Max",
 
   "attribute.name.murabitoattributes.phys_to_fire_damage_conv": "Physical Damage Converted to Fire",
   "attribute.name.murabitoattributes.phys_to_cold_damage_conv": "Physical Damage Converted to Cold",
@@ -119,6 +124,7 @@
   "attribute.name.murabitoattributes.life_leech_instant": "Instant Life Leech",
 
   "attribute.name.murabitoattributes.life_gain_on_hit": "Life Gain on Hit",
+  "attribute.name.murabitoattributes.life_gain_on_kill": "Life Gain on Kill",
 
   "attribute.name.murabitoattributes.endurance_charge_max": "Max Endurance Charges",
   "attribute.name.murabitoattributes.frenzy_charge_max": "Max Frenzy Charges",

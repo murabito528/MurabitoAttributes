@@ -7,8 +7,14 @@
   "tags": ["weapon","life", "attack", "physical"],
 
   "tiers": [
-    { "tier": 3, "min_ilvl": 20, "weight": 20 },
-    { "tier": 2, "min_ilvl": 45, "weight": 45 },
-    { "tier": 1, "min_ilvl": 70, "weight": 70 }
+    { "tier": 3, "min_ilvl": 20, "weight": 20,
+      "stats":[{"attribute": "murabitoattributes:life_leech", "op": 0, "min": 0.02, "max": 0.024 }]
+    },
+    { "tier": 2, "min_ilvl": 45, "weight": 45,
+      "stats":[{"attribute": "murabitoattributes:life_leech", "op": 0, "min": 0.026, "max": 0.032 }]
+    },
+    { "tier": 1, "min_ilvl": 70, "weight": 70,
+      "stats":[{"attribute": "murabitoattributes:life_leech", "op": 0, "min": 0.035, "max": 0.045 }]
+    }
   ]
 }

@@ -1,6 +1,8 @@
 package com.murabito.murabitoattributesmod.affix.currency;
 
 import com.murabito.murabitoattributesmod.affix.*;
+import com.murabito.murabitoattributesmod.affix.records.AffixDefinition;
+import com.murabito.murabitoattributesmod.affix.records.AffixTier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -34,6 +36,7 @@ public final class CurrencyActions {
         addUpTo(stack,ilvl,rng,1,2,1,1,NO_TAGS,NO_TAGS);
 
         setRarity(stack, Rarity.MAGIC);
+        AffixNbt.applyAffixAttributes(stack);
         return new RollResult("alteration");
     }
 
@@ -85,6 +88,8 @@ public final class CurrencyActions {
         clearRespectingLocks(stack);
         addUpTo(stack,ilvl,rng,3,6,3,3,NO_TAGS,NO_TAGS);
         setRarity(stack,Rarity.RARE);
+
+        AffixNbt.applyAffixAttributes(stack);
         return new RollResult("chaos");
     }
     public static RollResult chaos(ItemStack stack, RandomSource rng) {
@@ -102,6 +107,7 @@ public final class CurrencyActions {
             return new RollResult("レアリティがレアである必要があります");
         }
         addUpTo(stack,ilvl,rng,3,6,3,3,NO_TAGS,NO_TAGS);
+        AffixNbt.applyAffixAttributes(stack);
         return new RollResult("exalt");
     }
 
@@ -126,7 +132,7 @@ public final class CurrencyActions {
             // どっちもOK → 全体から
             ok = AffixNbt.removeRandom(stack, rng);
         }
-
+        AffixNbt.applyAffixAttributes(stack);
         return new RollResult(ok ? "annul" : "annul (no affix)");
     }
 
@@ -137,6 +143,7 @@ public final class CurrencyActions {
         }
         AffixNbt.resetAll(stack);
         clearRarity(stack);
+        AffixNbt.applyAffixAttributes(stack);
         return new RollResult("scour");
     }
 

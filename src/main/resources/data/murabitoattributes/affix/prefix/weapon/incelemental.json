@@ -5,13 +5,24 @@
   "groups": ["inc_elemental_damage"],
   "target": ["weapon"],
   "tags": ["weapon","damage", "attack", "elemental"],
-
   "tiers": [
-    { "tier": 6, "min_ilvl": 4, "weight": 300 },
-    { "tier": 5, "min_ilvl": 15, "weight": 300 },
-    { "tier": 4, "min_ilvl": 30, "weight": 300 },
-    { "tier": 3, "min_ilvl": 60, "weight": 300 },
-    { "tier": 2, "min_ilvl": 81, "weight": 300 },
-    { "tier": 1, "min_ilvl": 86, "weight": 300 }
+    { "tier": 6, "min_ilvl": 4, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:elemental_damage_increased", "op": 0, "min": 0.11, "max": 0.20 }]
+    },
+    { "tier": 5, "min_ilvl": 15, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:elemental_damage_increased", "op": 0, "min": 0.21, "max": 0.30 }]
+    },
+    { "tier": 4, "min_ilvl": 30, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:elemental_damage_increased", "op": 0, "min": 0.31, "max": 0.36 }]
+    },
+    { "tier": 3, "min_ilvl": 60, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:elemental_damage_increased", "op": 0, "min": 0.37, "max": 0.42 }]
+    },
+    { "tier": 2, "min_ilvl": 81, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:elemental_damage_increased", "op": 0, "min": 0.43, "max": 0.50 }]
+    },
+    { "tier": 1, "min_ilvl": 86, "weight": 300,
+      "stats":[{"attribute": "murabitoattributes:elemental_damage_increased", "op": 0, "min": 0.51, "max": 0.59 }]
+    }
   ]
 }

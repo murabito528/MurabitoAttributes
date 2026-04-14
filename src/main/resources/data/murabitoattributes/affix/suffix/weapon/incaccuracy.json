@@ -1,16 +1,26 @@
 {
   "id": "murabitoattributes:inc_accuracy",
   "type": "suffix",
-  "name": "#% increased Accuracy Rating",
+  "name": "# increased Accuracy Rating",
   "groups": ["inc_accuracy"],
   "target": ["weapon"],
   "tags": ["weapon", "attack"],
 
   "tiers": [
-    { "tier": 5, "min_ilvl": 1, "weight": 1000 },
-    { "tier": 4, "min_ilvl": 20, "weight": 1000 },
-    { "tier": 3, "min_ilvl": 40, "weight": 1000 },
-    { "tier": 2, "min_ilvl": 60, "weight": 1000 },
-    { "tier": 1, "min_ilvl": 75, "weight": 1000 }
+    { "tier": 5, "min_ilvl": 1, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:accuracy", "op": 0, "min": 80, "max": 130 }]
+    },
+    { "tier": 4, "min_ilvl": 20, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:accuracy", "op": 0, "min": 131, "max": 215 }]
+    },
+    { "tier": 3, "min_ilvl": 40, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:accuracy", "op": 0, "min": 216, "max": 325 }]
+    },
+    { "tier": 2, "min_ilvl": 60, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:accuracy", "op": 0, "min": 326, "max": 455 }]
+    },
+    { "tier": 1, "min_ilvl": 75, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:accuracy", "op": 0, "min": 456, "max": 624 }]
+    }
   ]
 }
