@@ -128,5 +128,8 @@
 
   "attribute.name.murabitoattributes.endurance_charge_max": "Max Endurance Charges",
   "attribute.name.murabitoattributes.frenzy_charge_max": "Max Frenzy Charges",
-  "attribute.name.murabitoattributes.power_charge_max": "Max Power Charges"
+  "attribute.name.murabitoattributes.power_charge_max": "Max Power Charges",
+
+  "item.murabitoattributes.orb_chaos": "Chaos Orb",
+  "item.murabitoattributes.orb_alteration": "Alteration Orb"
 }

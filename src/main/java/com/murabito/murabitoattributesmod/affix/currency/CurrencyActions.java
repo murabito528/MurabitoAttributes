@@ -37,7 +37,7 @@ public final class CurrencyActions {
 
         setRarity(stack, Rarity.MAGIC);
         AffixNbt.applyAffixAttributes(stack);
-        return new RollResult("alteration");
+        return new RollResult("");
     }
 
     public static RollResult alteration(ItemStack stack, RandomSource rng) {
@@ -90,7 +90,7 @@ public final class CurrencyActions {
         setRarity(stack,Rarity.RARE);
 
         AffixNbt.applyAffixAttributes(stack);
-        return new RollResult("chaos");
+        return new RollResult("");
     }
     public static RollResult chaos(ItemStack stack, RandomSource rng) {
         int ilvl = AffixNbt.getIlvl(stack);
@@ -108,7 +108,7 @@ public final class CurrencyActions {
         }
         addUpTo(stack,ilvl,rng,3,6,3,3,NO_TAGS,NO_TAGS);
         AffixNbt.applyAffixAttributes(stack);
-        return new RollResult("exalt");
+        return new RollResult("");
     }
 
     /** Annul: どれか1個削除（ロック尊重） */
@@ -133,7 +133,7 @@ public final class CurrencyActions {
             ok = AffixNbt.removeRandom(stack, rng);
         }
         AffixNbt.applyAffixAttributes(stack);
-        return new RollResult(ok ? "annul" : "annul (no affix)");
+        return new RollResult(ok ? "" : "annul (no affix)");
     }
 
     /** Scour: 全消し */
@@ -144,7 +144,7 @@ public final class CurrencyActions {
         AffixNbt.resetAll(stack);
         clearRarity(stack);
         AffixNbt.applyAffixAttributes(stack);
-        return new RollResult("scour");
+        return new RollResult("");
     }
 
     /** Augment(Prefix): prefix枠が空いていればprefixを1つ追加 */

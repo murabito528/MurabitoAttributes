@@ -128,6 +128,9 @@
 
   "attribute.name.murabitoattributes.endurance_charge_max": "最大エンデュランスチャージ",
   "attribute.name.murabitoattributes.frenzy_charge_max": "最大フレンジーチャージ",
-  "attribute.name.murabitoattributes.power_charge_max": "最大パワーチャージ"
+  "attribute.name.murabitoattributes.power_charge_max": "最大パワーチャージ",
+
+  "item.murabitoattributes.orb_chaos": "混沌のオーブ",
+  "item.murabitoattributes.orb_alteration": "改変のオーブ"
 
 }
