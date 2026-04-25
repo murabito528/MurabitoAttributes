@@ -2,6 +2,10 @@ package com.murabito.murabitoattributesmod.events;
 
 import com.murabito.murabitoattributesmod.MurabitoAttributesMod;
 import com.murabito.murabitoattributesmod.damage.*;
+import com.murabito.murabitoattributesmod.gamerule.CustomGameRules;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -31,6 +35,11 @@ public class DamageEvent {
 
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
+        ServerLevel level = (ServerLevel) event.getEntity().level();
+        if (!level.getGameRules().getBoolean(CustomGameRules.SHOW_DAMAGE_LOG)) return;
+        if(level.isClientSide) return;
 
+        Component message = Component.literal(String.valueOf(event.getAmount()));
+        level.getServer().getPlayerList().broadcastSystemMessage(message, false);
     }
 }

@@ -3,7 +3,7 @@
   "type": "prefix",
   "name": "#% increased Physical Damage, +# to Accuracy Rating",
   "groups": ["inc_phys_damage_inc_acc"],
-  "target": ["weapon"],
+  "targets": ["mainhand"],
   "tags": ["weapon","damage", "attack", "physical"],
 
   "tiers": [

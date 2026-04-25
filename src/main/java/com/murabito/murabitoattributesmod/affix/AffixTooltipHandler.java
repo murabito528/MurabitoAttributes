@@ -5,6 +5,7 @@ import com.murabito.murabitoattributesmod.MurabitoAttributesMod;
 import com.murabito.murabitoattributesmod.affix.records.AffixStat;
 import com.murabito.murabitoattributesmod.affix.records.AffixTier;
 import com.murabito.murabitoattributesmod.attributes.CustomAttributes;
+import com.murabito.murabitoattributesmod.util.Util;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -13,6 +14,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,6 +23,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -101,6 +105,30 @@ public class AffixTooltipHandler {
 
     private static void displayStats(ItemTooltipEvent e){
         //attributeの設定で消えた攻撃力とかを自前で表示
+        EquipmentSlot slot = Util.getEquipmentSlot(e.getItemStack());
+        if(slot==EquipmentSlot.MAINHAND) displayStatsWeapon(e);
+        if(e.getItemStack().getItem() instanceof ArmorItem) displayStatsArmor(e);
+    }
+
+    private static void displayStatsArmor(ItemTooltipEvent e){
+        boolean showDetails = Screen.hasAltDown();
+        var stack = e.getItemStack();
+        var affixes = AffixNbt.read(stack);
+        int ilvl = AffixNbt.getIlvl(stack);
+        if(ilvl<=0 || affixes.isEmpty()) return;
+
+        EquipmentSlot slot = Util.getEquipmentSlot(stack);
+
+        var modifiers = stack.getAttributeModifiers(slot);
+        // 各Modifierを集計
+        double armorPoints = calcArmor(modifiers);
+
+        MutableComponent line = Component.literal("防御力: ").withStyle(ChatFormatting.WHITE);
+        line.append(Component.literal(String.format("%,.0f", armorPoints)).withStyle(ChatFormatting.BLUE));
+        e.getToolTip().add(line);
+    }
+
+    private static void displayStatsWeapon(ItemTooltipEvent e){
         var player = e.getEntity();
 
         boolean showDetails = Screen.hasAltDown();
@@ -219,5 +247,38 @@ public class AffixTooltipHandler {
 
         double scale = (1+inc) * more;
         return new DamageRange((base + min) * scale, (base + max) * scale);
+    }
+
+    private static double calcArmor(Multimap<Attribute, AttributeModifier> modifiers){
+        if (modifiers.isEmpty()) return 0.0;
+        Collection<AttributeModifier> armorModifiers = modifiers.get(Attributes.ARMOR);
+
+        // 3. 属性計算（バニラのロジック準拠）
+        double base = 0;
+
+        // Operation 0: 加算 (定数)
+        for (AttributeModifier mod : armorModifiers) {
+            if (mod.getOperation() == AttributeModifier.Operation.ADDITION) {
+                base += mod.getAmount();
+            }
+        }
+
+        double result = base;
+
+        // Operation 1: 乗算 (Baseに対する倍率)
+        for (AttributeModifier mod : armorModifiers) {
+            if (mod.getOperation() == AttributeModifier.Operation.MULTIPLY_BASE) {
+                result += base * mod.getAmount();
+            }
+        }
+
+        // Operation 2: 乗算 (最終値に対する倍率)
+        for (AttributeModifier mod : armorModifiers) {
+            if (mod.getOperation() == AttributeModifier.Operation.MULTIPLY_TOTAL) {
+                result *= (1.0 + mod.getAmount());
+            }
+        }
+
+        return result;
     }
 }

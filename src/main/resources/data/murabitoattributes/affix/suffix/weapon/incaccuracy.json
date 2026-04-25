@@ -3,7 +3,7 @@
   "type": "suffix",
   "name": "# increased Accuracy Rating",
   "groups": ["inc_accuracy"],
-  "target": ["weapon"],
+  "targets": ["mainhand"],
   "tags": ["weapon", "attack"],
 
   "tiers": [

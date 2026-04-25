@@ -1,0 +1,51 @@
+{
+  "id": "murabitoattributes:add_armor_low",
+  "type": "prefix",
+  "name": "+# to local Armor",
+  "groups": ["add_armor"],
+  "targets": ["head","legs","feet"],
+  "tags": ["armor", "defence"],
+
+  "tiers": [
+    { "tier": 8, "min_ilvl": 1, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 6, "max": 12 }
+      ]
+    },
+    { "tier": 7, "min_ilvl": 11, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 13, "max": 35 }
+      ]
+    },
+    { "tier": 6, "min_ilvl": 17, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 36, "max": 63 }
+      ]
+    },
+    { "tier": 5, "min_ilvl": 23, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 64, "max": 82 }
+      ]
+    },
+    { "tier": 4, "min_ilvl": 29, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 83, "max": 101 }
+      ]
+    },
+    { "tier": 3, "min_ilvl": 35, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 102, "max": 120 }
+      ]
+    },
+    { "tier": 2, "min_ilvl": 43, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 121, "max": 150 }
+      ]
+    },
+    { "tier": 1, "min_ilvl": 51, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 151, "max": 200 }
+      ]
+    }
+  ]
+}

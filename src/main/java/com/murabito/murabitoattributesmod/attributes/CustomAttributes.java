@@ -28,6 +28,12 @@ public class CustomAttributes {
     public static final RegistryObject<Attribute> PHYS_REDUCTION =
             register("phys_reduction", 0.0D, 0.0D, 25565.0D);
 
+    /*ローカル防御力増加 総量に意味はない*/
+    public static final RegistryObject<Attribute> INC_ARMOR_LOCAL =
+            register("armor_inc_local", 0.0D, 0.0D, 25565.0D);
+    public static final RegistryObject<Attribute> ADD_ARMOR_LOCAL =
+            register("armor_add_local", 0.0D, 0.0D, 25565.0D);
+
     /*非物理属性基礎値*/
     public static final RegistryObject<Attribute> FIRE_DAMAGE_BASE =
             register("fire_damage_base", 0.0D, 0.0D, 25565.0D);

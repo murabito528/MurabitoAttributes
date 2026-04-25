@@ -2,6 +2,9 @@ package com.murabito.murabitoattributesmod.affix;
 
 import com.murabito.murabitoattributesmod.affix.records.AffixStat;
 import com.murabito.murabitoattributesmod.affix.records.AffixTier;
+import com.murabito.murabitoattributesmod.attributes.CustomAttributes;
+import com.murabito.murabitoattributesmod.gamerule.CustomGameRules;
+import com.murabito.murabitoattributesmod.util.Util;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -9,11 +12,13 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -230,9 +235,13 @@ public final class AffixNbt {
         //これをしないと新しいattributeを追加したときにデフォルトの数値が消えるっぽい
         copyDefaultAttributesToNbt(stack);
 
+
         //Nbtからaffixのidを確認してregistryから情報を読む
         var affixes = read(stack);
         if (affixes.isEmpty()) return;
+
+        double localArmorAdd = 0;
+        double localArmorInc = 0;
 
         for (var affix : affixes) {
             var affixDef = AffixRegistry.get(affix.id());
@@ -246,19 +255,55 @@ public final class AffixNbt {
                 double rawAmount = stat.min() + (stat.max() - stat.min()) * affix.roll;
                 double amount = Math.floor(rawAmount*100)/100;
 
+                // 防具用のローカルな属性を集計
+                if (stat.attribute().equals(CustomAttributes.ADD_ARMOR_LOCAL.getId())) {
+                    localArmorAdd += amount;
+                } else if (stat.attribute().equals(CustomAttributes.INC_ARMOR_LOCAL.getId())) {
+                    localArmorInc += amount;
+                }
+
                 //attribute組み立て
                 AttributeModifier attributeModifier = new AttributeModifier(AFFIXNAME, amount, AttributeModifier.Operation.fromValue(stat.op()));
-                //attribute適用(とりあえずメインハンド、後で部位ごとに設定)
+                //attribute適用
                 Attribute attribute = ForgeRegistries.ATTRIBUTES.getValue(stat.attribute());
                 if (attribute != null) {
-                    stack.addAttributeModifier(attribute, attributeModifier, EquipmentSlot.MAINHAND);
+                    stack.addAttributeModifier(attribute, attributeModifier, Util.getEquipmentSlot(stack));
                 }
+            }
+        }
+        if(localArmorInc>0||localArmorAdd>0){
+            if (stack.hasTag() && stack.getTag().contains("AttributeModifiers", Tag.TAG_LIST)) {
+                ListTag modifiers = stack.getTag().getList("AttributeModifiers", Tag.TAG_COMPOUND);
+
+                /*Armor modifierの値の取得*/
+                double baseArmorValue = 0;
+                CompoundTag originalArmorTag = null;
+
+                // 1. まず既存の "Armor modifier" を探して数値を取得
+                for (int i = 0; i < modifiers.size(); i++) {
+                    CompoundTag compound = modifiers.getCompound(i);
+                    if (compound.getString("Name").equals("Armor modifier")) {
+                        baseArmorValue = compound.getDouble("Amount");
+                        originalArmorTag = compound.copy(); // UUIDやSlotなどの情報を引き継ぐためにコピー
+                        break;
+                    }
+                }
+                if(originalArmorTag==null) return;
+
+                /*新しいArmor modifierの保存*/
+                double finalArmorValue = (baseArmorValue + localArmorAdd) * (1.0 + localArmorInc) - baseArmorValue;
+                //attribute組み立て
+                AttributeModifier attributeModifier = new AttributeModifier(AFFIXNAME, finalArmorValue, AttributeModifier.Operation.ADDITION);
+                stack.addAttributeModifier(Attributes.ARMOR, attributeModifier, Util.getEquipmentSlot(stack));
+
             }
         }
 
         //attribute表示を消す
         CompoundTag tag = stack.getOrCreateTag();
         tag.putInt("HideFlags", tag.getInt("HideFlags") | 2);
+        //壊れなくする
+        tag.putBoolean("Unbreakable", true);
     }
 
     private static void removeAffixAttributes(ItemStack stack){

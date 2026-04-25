@@ -3,7 +3,7 @@
   "type": "prefix",
   "name": "Adds # to # Physical Damage",
   "groups": ["added_physical_damage"],
-  "target": ["weapon"],
+  "targets": ["mainhand"],
   "tags": ["weapon","damage", "attack", "physical"],
   "tiers": [
     { "tier": 9, "min_ilvl": 2, "weight": 1000,

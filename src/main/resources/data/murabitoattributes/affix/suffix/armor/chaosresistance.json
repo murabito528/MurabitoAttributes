@@ -1,28 +1,29 @@
 {
   "id": "murabitoattributes:chaos_resistance",
   "type": "suffix",
-  "name": "+# Chaos Resistance",
+  "name": "+#% Chaos Resistance",
   "groups": ["chaos_resistance"],
+  "targets": ["head","chest","legs","feet"],
   "tags": ["armor", "chaos", "resistance"],
 
   "tiers": [
     { "tier": 6, "min_ilvl": 16, "weight": 250,
-      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 5, "max": 10 }]
+      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 0.05, "max": 0.10 }]
     },
     { "tier": 5, "min_ilvl": 30, "weight": 250,
-      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 11, "max": 15 }]
+      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 0.11, "max": 0.15 }]
     },
     { "tier": 4, "min_ilvl": 44, "weight": 250,
-      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 16, "max": 20 }]
+      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 0.16, "max": 0.20 }]
     },
     { "tier": 3, "min_ilvl": 56, "weight": 250,
-      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 21, "max": 25 }]
+      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 0.21, "max": 0.25 }]
     },
     { "tier": 2, "min_ilvl": 65, "weight": 250,
-      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 26, "max": 30 }]
+      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 0.26, "max": 0.30 }]
     },
     { "tier": 1, "min_ilvl": 81, "weight": 250,
-      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 31, "max": 35 }]
+      "stats":[{"attribute": "murabitoattributes:chaos_resistance", "op": 0, "min": 0.31, "max": 0.35 }]
     }
   ]
 }

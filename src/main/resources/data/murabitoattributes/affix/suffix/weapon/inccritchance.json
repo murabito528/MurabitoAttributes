@@ -3,7 +3,7 @@
   "type": "suffix",
   "name": "#% increased Critical Chance",
   "groups": ["inc_crit_chance"],
-  "target": ["weapon"],
+  "targets": ["mainhand"],
   "tags": ["weapon","critical", "attack"],
 
   "tiers": [

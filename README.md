@@ -46,4 +46,9 @@ Modding初心者による制作のため、コードに粗が目立つ部分が�
 * **Iron's Spells 'n Spellbooks**:元素ダメージ増加や耐性などの影響を受けるようになります
 * **Target Dummy**:元素/混沌ダメージは色付きで表示
 
+## 推奨Mod
+* **Apothic Attributes**:物理ダメージ計算式を変更します
+* **AttributeFix**:防御力の上限(バニラでは30)を無くします
+* **Max Health Fix**:ワールドに入りなおしたとき体力が20以上であっても20になってしまうバグを修正します
+
 [CurseForge Project Page](https://www.curseforge.com/minecraft/mc-mods/murabitoattributes)

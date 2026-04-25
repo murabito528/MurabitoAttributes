@@ -3,7 +3,7 @@
   "type": "suffix",
   "name": "#% increased Attack Speed",
   "groups": ["inc_attack_speed"],
-  "target": ["weapon"],
+  "targets": ["mainhand"],
   "tags": ["weapon","speed", "attack"],
 
   "tiers": [

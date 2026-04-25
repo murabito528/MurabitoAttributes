@@ -1,9 +1,12 @@
 package com.murabito.murabitoattributesmod.affix.currency;
 
+import com.murabito.murabitoattributesmod.MurabitoAttributesMod;
 import com.murabito.murabitoattributesmod.affix.*;
 import com.murabito.murabitoattributesmod.affix.records.AffixDefinition;
 import com.murabito.murabitoattributesmod.affix.records.AffixTier;
+import com.murabito.murabitoattributesmod.util.Util;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -109,6 +112,14 @@ public final class CurrencyActions {
         addUpTo(stack,ilvl,rng,3,6,3,3,NO_TAGS,NO_TAGS);
         AffixNbt.applyAffixAttributes(stack);
         return new RollResult("");
+    }
+    public static RollResult exalt(ItemStack stack, RandomSource rng) {
+        int ilvl = AffixNbt.getIlvl(stack);
+        if(ilvl<=0) {
+            AffixNbt.setIlvl(stack,1);
+            ilvl=1;
+        }
+        return exalt(stack, ilvl, rng);
     }
 
     /** Annul: どれか1個削除（ロック尊重） */
@@ -251,6 +262,8 @@ public final class CurrencyActions {
         Set<String> itemTags = inferItemTags(stack);//weapon/armor/otherとか
         Set<String> usedGroups = collectUsedGroups(stack);
 
+        //System.out.println("Item: " + stack.getItem() + " | Tags: " + itemTags);
+
         List<AffixDefinition> candidates = AffixRegistry.byType(type).stream()
                 .filter(def -> fitsItem(def, itemTags))
                 .filter(def -> !conflictsGroup(def, usedGroups))
@@ -304,15 +317,19 @@ public final class CurrencyActions {
         return def.tiers().stream().filter(t -> ilvl >= t.minIlvl()).mapToInt(AffixTier::weight).sum();
     }
 
-    /** itemTags に対して affixのtagsをチェック（weapon/armor/accessory/mapなどは必須一致扱い） */
+    /** itemTags に対して affixのtagsをチェック */
     private static boolean fitsItem(AffixDefinition def, Set<String> itemTags) {
-        // カテゴリタグは “要求” として扱う（def側に書いてあれば満たす必要あり）
-        Set<String> category = Set.of("weapon", "armor", "accessory", "map");
 
-        for (String t : def.tags()) {
-            if (category.contains(t) && !itemTags.contains(t)) return false;
+        //targetsの指定がなければすべてにつく
+        if (def.targets().isEmpty()) return true;
+        for (String t : def.targets()) {
+            if (itemTags.contains(t)) {
+                //MurabitoAttributesMod.LOGGER.info("test:{}", t);
+                return true;
+            }
         }
-        return true;
+
+        return false;
     }
 
     private static boolean conflictsGroup(AffixDefinition def, Set<String> usedGroups) {
@@ -331,21 +348,15 @@ public final class CurrencyActions {
                 .collect(Collectors.toSet());
     }
 
-    /** バニラ装備向け：ざっくり itemTags を推定（いまは weapon/armor/other） */
+    /** バニラ装備向け：ざっくり itemTags を推定（いまは mainhand/head/chest/legs/feet） */
     private static Set<String> inferItemTags(ItemStack stack) {
-        Item item = stack.getItem();
         Set<String> tags = new HashSet<>();
 
-        if (item instanceof ArmorItem) tags.add("armor");
-
-        // TieredItem = 剣/斧/ツルハシ/シャベル/クワ などの道具系
-        if (item instanceof TieredItem) tags.add("weapon");
+        tags.add(Util.getEquipmentSlot(stack).getName());
 
         // まだCuriosはテストしないとのことなのでここは後回し
         // tags.add("accessory"); は Curios導入時に付与判定を足す
 
-        // 何も付かなかったら “other” 扱い（def.tagsにカテゴリが無いものだけが候補になる）
-        if (tags.isEmpty()) tags.add("other");
         return tags;
     }
 

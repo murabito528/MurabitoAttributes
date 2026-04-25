@@ -14,12 +14,14 @@ public class DamageLog {
      * @param msg
      */
     public static void log(HitData hitData, String msg){
-        if(!(hitData.attacker instanceof Player player)) return;
-
-        ServerLevel level = (ServerLevel) player.level();
+        if (hitData.attacker == null || hitData.attacker.level().isClientSide) return;
+        if (!(hitData.attacker.level() instanceof ServerLevel level)) return;
         if (!level.getGameRules().getBoolean(CustomGameRules.SHOW_DAMAGE_LOG)) return;
         if(level.isClientSide) return;
-        player.sendSystemMessage(Component.literal(msg));
+
+        Component message = Component.literal(msg);
+        // サーバーに接続している全プレイヤーに送信
+        level.getServer().getPlayerList().broadcastSystemMessage(message, false);
 
     }
 }

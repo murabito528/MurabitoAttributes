@@ -1,0 +1,26 @@
+{
+  "id": "murabitoattributes:add_phys_reduction",
+  "type": "suffix",
+  "name": "#% add Physical Damage Reduction",
+  "groups": ["add_physical_reduction"],
+  "targets": ["chest"],
+  "tags": ["armor", "physical"],
+
+  "tiers": [
+    { "tier": 5, "min_ilvl": 45, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:phys_reduction", "op": 0, "min": 0.04, "max": 0.04 }]
+    },
+    { "tier": 4, "min_ilvl": 58, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:phys_reduction", "op": 0, "min": 0.05, "max": 0.05 }]
+    },
+    { "tier": 3, "min_ilvl": 67, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:phys_reduction", "op": 0, "min": 0.06, "max": 0.06 }]
+    },
+    { "tier": 2, "min_ilvl": 77, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:phys_reduction", "op": 0, "min": 0.07, "max": 0.07 }]
+    },
+    { "tier": 1, "min_ilvl": 86, "weight": 1000,
+      "stats":[{"attribute": "murabitoattributes:phys_reduction", "op": 0, "min": 0.08, "max": 0.08 }]
+    }
+  ]
+}

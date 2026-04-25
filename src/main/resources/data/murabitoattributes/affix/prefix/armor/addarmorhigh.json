@@ -1,0 +1,66 @@
+{
+  "id": "murabitoattributes:add_armor_high",
+  "type": "prefix",
+  "name": "+# to local Armor",
+  "groups": ["add_armor"],
+  "targets": ["chest"],
+  "tags": ["armor", "defence"],
+
+  "tiers": [
+    { "tier": 11, "min_ilvl": 1, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 6, "max": 12 }
+      ]
+    },
+    { "tier": 10, "min_ilvl": 11, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 13, "max": 35 }
+      ]
+    },
+    { "tier": 9, "min_ilvl": 17, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 36, "max": 63 }
+      ]
+    },
+    { "tier": 8, "min_ilvl": 23, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 64, "max": 82 }
+      ]
+    },
+    { "tier": 7, "min_ilvl": 29, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 83, "max": 101 }
+      ]
+    },
+    { "tier": 6, "min_ilvl": 35, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 102, "max": 120 }
+      ]
+    },
+    { "tier": 5, "min_ilvl": 43, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 121, "max": 150 }
+      ]
+    },
+    { "tier": 4, "min_ilvl": 51, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 151, "max": 200 }
+      ]
+    },
+    { "tier": 3, "min_ilvl": 60, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 201, "max": 300 }
+      ]
+    },
+    { "tier": 2, "min_ilvl": 69, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 301, "max": 400 }
+      ]
+    },
+    { "tier": 1, "min_ilvl": 77, "weight": 1000,
+      "stats":[
+        {"attribute": "murabitoattributes:armor_add_local", "op": 0, "min": 401, "max": 500 }
+      ]
+    }
+  ]
+}

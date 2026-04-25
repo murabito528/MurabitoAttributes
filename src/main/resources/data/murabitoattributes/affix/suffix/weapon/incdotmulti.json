@@ -3,7 +3,7 @@
   "type": "suffix",
   "name": "#% to Damage over Time Multiplier",
   "groups": ["inc_dot_multi"],
-  "target": ["weapon"],
+  "targets": ["mainhand"],
   "tags": ["weapon","damage"],
 
   "tiers": [

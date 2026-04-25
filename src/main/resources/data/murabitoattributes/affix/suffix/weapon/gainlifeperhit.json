@@ -3,7 +3,7 @@
   "type": "suffix",
   "name": "Gain # Life per Enemy Hit",
   "groups": ["gain_life_per_Hit"],
-  "target": ["weapon"],
+  "targets": ["mainhand"],
   "tags": ["weapon","life","attack"],
 
   "tiers": [
